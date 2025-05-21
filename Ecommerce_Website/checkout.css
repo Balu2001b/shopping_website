@@ -1,0 +1,864 @@
+:root {
+    --color-primary: #0073ff;
+    --color-white: #e9e9e9;
+    --color-black: #141d28;
+    --color-black-1: #212b38;
+    }
+    html{
+
+        scroll-behavior: smooth;   
+        overflow: scroll;
+        
+    }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+    }
+
+    .ab_icon{
+
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        position: absolute;
+        left: 5px;
+        top:20px;
+        cursor: pointer;
+    
+    
+      }
+        .logo {
+        color: white;
+        font-size: 25px;
+        
+        }
+        .logo .sp{
+    
+            font-size: 12px;
+            margin-left: 190px;
+        }
+       
+        
+        .menu-bar {
+        background-color: black;
+        position: fixed;
+        top: 0;
+        height: 80px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5%;
+    
+        }
+        
+        .menu-bar ul {
+        list-style: none;
+        display: flex;
+        }
+        
+        .menu-bar ul li {
+        /* width: 120px; */
+        padding: 10px 15px;
+        letter-spacing: 1px;
+        /* text-align: center; */
+        
+        position: relative;
+        }
+        
+        .menu-bar ul li a {
+        font-size: 12px;
+        color: white;
+        text-decoration: none;
+        
+        transition: all 0.3s;
+        }
+        
+        .menu-bar ul li a:hover {
+        color: var(--color-primary);
+        }
+        
+      
+        
+        /*--------------------------------- Dropdown menu Styling Section Here------------------------------------- */
+    
+    
+        .dropdown-menu {
+        display: none;
+        }
+        
+        .menu-bar ul li:hover .dropdown-menu {
+        display: block;
+        position: absolute;
+        left: 10px;
+        top: 100%;
+        background-color: black;
+        border-radius: 10px;
+        
+        }
+        .menu-bar ul li:hover .dropdown-menu1 {
+            display: block;
+            position: absolute;
+            left: 120px;
+            top: 0px;
+            background-color: black;
+            border-radius: 10px;
+            
+            }
+            
+        .menu-bar ul li:hover .dropdown-menu ul {
+        display: block;
+        margin: 10px;
+        }
+        
+        .menu-bar ul li:hover .dropdown-menu ul li {
+        width: 200px;
+        padding: 6px;
+        }
+        
+        .dropdown-menu-1 {
+        display: none;
+        }
+        
+        .dropdown-menu ul li:hover .dropdown-menu-1 {
+        display: block;
+        position: absolute;
+        left: 180px;
+        top: 0;
+        background-color: black;
+        }
+       
+      .first_name{
+
+        padding: 20px;
+      }
+      .last_name{
+
+        padding: 20px;
+        margin-top: -86px;
+        margin-left: 220px;
+
+    }
+    .first_name input,.last_name input,.city input,.district input,.pincode input,.number input{
+        padding: 5px 10px 5px 10px;
+        border-radius: 4px;
+        border: 1px solid black;
+        outline: none;
+        
+
+
+
+    }
+    .first_name label::after,.last_name label::after,.street label::after,
+    .area label::after,.city label::after,.district label::after,.pincode label::after,.number label::after{
+
+        content: "*";
+        color: red;
+
+
+    }
+    .first_name label,.last_name label,.street label,.area label{
+
+        color: #0073ff;
+        
+    }
+    .street,.area{
+
+        
+        margin-left: 20px;
+        margin-bottom: 20px;
+
+    }
+    .street input,.area input{
+
+        padding: 5px;
+       outline: none;
+        border-radius: 4px;
+        border: 1px solid black;
+      
+        
+
+    }
+    .city{
+        margin-left: 20px;
+        margin-bottom: 20px;
+        color: #0073ff;
+        
+
+
+
+    }
+    .pincode{
+
+        margin-left: 20px;
+        margin-top: 10px;
+        color: #0073ff;
+    }
+    .district{
+
+        margin-top: -65px;
+        margin-left: 230px;
+        margin-bottom: 20px;
+        color: #0073ff;
+    }
+    .number{
+
+        margin-top: -45px;
+        margin-left: 230px;
+        color: #0073ff;
+    }
+    .address{
+
+        padding: 10px 100px 10px 200px;
+        color: white;
+        display: inline-block;
+        background-color: #0073ff;
+        border: none;
+        margin-top: 20px;
+        margin-left: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 12px;
+
+    }
+    .address:hover{
+
+        background-color: #173861;
+    }
+
+    .container1{
+
+        margin: 100px 0px 0px 25px;
+        
+        
+
+    }
+    .items{
+        margin-top: 10px;
+        margin-left: 20px;
+        border: 1px solid rgb(182, 177, 177);
+        height: 250px;
+        width: 500px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        outline: none;
+        overflow-y: scroll;
+       scrollbar-width: thin;
+        scrollbar-color: rgb(218, 211, 211);
+       
+    }
+
+
+    .container2{
+
+margin: 10px 0px 0px 25px;
+
+}
+.summary{
+margin-top: 10px;
+margin-left: 20px;
+border: 1px solid rgb(182, 177, 177);
+height: 155px;
+width: 510px;
+border-radius: 10px;
+
+}
+
+.summary p{
+
+    font-size: 15px;
+    padding: 3px;
+    color: rgb(119, 114, 114);
+}
+
+.amount1{
+
+        float: right;
+        margin-right: 10px;
+        
+}
+
+.coupon-container input{
+    padding: 5px 10px 5px 10px;
+    border-radius: 4px;
+    border: 1px solid black;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    outline: none;
+
+
+}
+.coupon-container button{
+    padding: 5px 10px 5px 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #0073ff;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+
+
+}
+.coupon-container button:hover{
+    background-color: #173861;
+}
+
+.shipping-head{
+
+    position: fixed;
+    top: 100px;
+    left: 700px;
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+}
+
+.shipping-message{
+
+    position: fixed;
+    top: 130px;
+    left: 700px;
+    font-size: 12px;
+    color: red;
+    font-weight: 400;
+}
+
+
+.saved-address{
+        border: 1px solid rgb(182, 177, 177);
+        height: 200px;
+        width: 500px;
+        border-radius: 10px;
+        overflow-y: auto;
+        position: relative;
+        scrollbar-width: thin;
+        scrollbar-color: rgb(218, 211, 211);
+}
+
+
+/* Chrome, Edge, Safari */
+.saved-address::-webkit-scrollbar {
+    width: 6px;
+}
+
+.saved-address::-webkit-scrollbar-thumb {
+    background-color: rgb(219, 219, 219); /* Scrollbar color while scrolling */
+    border-radius: 3px;
+    
+}
+
+.saved-address::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+
+.saved-address-container{
+
+    position: relative;
+    top: -280px;
+    left: 680px;
+    
+}
+.saved-address-container p{
+
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+}
+.place-order{
+
+    padding: 10px;
+    padding-left: 200px;
+    padding-right: 170px;
+    margin: 10px 0px 0px 20px;
+    cursor: pointer;
+    background-color: #0073ff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.place-order:hover{
+
+    background-color: #173861;
+}
+/*----------------------------------------Address Toast Message Styling Section Here---------------------------*/
+
+.toast-address {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: 	#0073ff;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 30px;
+    font-size: 17px;
+   
+}
+
+/* Show the toast message */
+.toast-address.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations for the toast */
+@keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+    to {
+        top: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        top: 30px;
+        opacity: 1;
+    }
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
+
+
+.modal1 {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    
+  }
+  
+  .modal-content1 {
+    background-color: #fff;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease;
+    
+  }
+
+
+  #openModalBtn{
+
+    position: fixed;
+    top: 150px;
+    left: 725px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #0073ff;
+    color: white;
+    cursor: pointer;
+    
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: #000;
+  }
+
+/*------------------------------------Show Wishlist Styling here---------------------------------*/
+
+.toast-coupon {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: 	rgb(73, 216, 73);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 30px;
+    font-size: 17px;
+   
+}
+
+/* Show the toast message */
+.toast-coupon.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations for the toast */
+@keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+    to {
+        top: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        top: 30px;
+        opacity: 1;
+    }
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
+/*-------------------Cart image,name,price styling section here----------------------------------*/
+
+
+.cart-container {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 20px auto;
+    overflow-y: auto;
+    max-height: 300px; /* Adjust height if needed */
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.cart-name {
+    flex-grow: 1;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-price {
+    font-size: 14px;
+    margin-right: 25px;
+}
+
+.delete-item {
+    cursor: pointer;
+    color: #e74c3c;
+    font-size: 14px;
+    margin-right: 10px;
+    display: none;
+    transition: color 0.3s;
+}
+
+.delete-item:hover {
+    color: #96453c;
+}
+
+
+.cart-quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 20px;
+    display: none;
+}
+
+.cart-quantity-controls button {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.cart-quantity-controls button:hover {
+    background: #89bdf5;
+}
+
+.cart-quantity {
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+#total3{
+
+    font-weight: 750;
+    color: black;
+}
+.cart-size{
+
+font-size: 12px;
+font-weight: bold;
+color: rgb(238, 30, 30);
+position: relative;
+left: -270px;
+margin-top: 35px;
+}
+.quantity-number{
+
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(80, 78, 78);
+    position: relative;
+    left: -100px;
+    margin-top: 35px;
+}
+
+
+
+
+/* Modal Container */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 30px 20px 20px 20px;
+  border-radius: 10px;
+  
+  width: 90%;
+  max-width: 500px;
+  position: fixed;
+  top: -80px;
+  left: 400px;
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: red;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 6px;
+  margin: 6px 0 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-content label{
+
+    color: #0073ff;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.save-changes{
+
+    padding: 10px 150px 10px 150px;
+    border-radius: 5px;
+    border: none;
+    background-color: #0073ff;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.save-changes:hover{
+
+    background-color: #173861;
+}
+
+
+
+
+#preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
+	backdrop-filter: blur(2px); /* applies blur to whatever's behind */
+	-webkit-backdrop-filter: blur(10px); /* for Safari */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 99999;
+}
+
+
+#loader-text{
+
+    position: absolute;
+    top: 420px;
+    left: 500px;
+    
+    font-weight: bold;
+}
+
+
+/*-----------------------------------Displayed address Styling Section Here---------------------------*/
+
+.radio-icon{
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #0073ff;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+    top: 35px;
+    left: 5px;
+    cursor: pointer;
+}
+
+.radio-icon:hover{
+
+    background-color: #173861;
+}
+.radio-icon:checked{
+
+    background-color: #173861;
+}   
+
+.radio-icon:checked::after{
+
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #0073ff;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}       
+
+.add_fullName{
+
+    margin-top: 10px;
+    margin-left: 1px;
+    font-size: 15px;
+    color: black;
+    font-weight: 600;
+
+}
+
+.add_street,.add_area{
+    
+        position: relative;
+        top: 3px;
+        left: 33px;
+        font-size: 13px;
+        color: rgb(124, 124, 124);
+        font-weight: 500;
+
+}
+
+.add_city,.add_district,.add_pincode{
+
+    position: relative;
+    top: 3px;
+    left: 33px;
+    font-size: 13px;
+    color: rgb(124, 124, 124);
+    font-weight: 500;
+
+}
+
+.add_mobile{
+
+    position: relative;
+    top: 3px;
+    left: 33px;
+    font-size: 13px;
+    color: rgb(124, 124, 124);
+    font-weight: 500;
+    
+
+}
+
+.edit-button{
+        
+        padding: 5px 10px 5px 10px;
+        border-radius: 4px;
+        border: none;
+       background: none;
+        color: black;
+        cursor: pointer;
+       
+}
+
+
+.checkout-item {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 0 10px #ccc;
+    display: flex;
+    gap: 20px;
+  }
+  .checkout-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+  }

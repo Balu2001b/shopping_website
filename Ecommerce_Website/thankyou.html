@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+
+    <link rel="icon" href="./fashion_logo1.png" type="">
+
+    <link rel="stylesheet" href="thankyou.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+
+</head>
+<body>
+
+    <div id="preloader">
+        <p id="loader-text1"></p>
+        <img src="./preloader.gif" alt="">
+    </div>
+
+       
+<!-----------------------------------------------------Header Section-------------------------------------------->
+
+<div class="menu-bar">
+    <a href="main.html" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.png" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
+
+
+
+  </div>  
+
+            
+<div class="container">
+    <i class="bi bi-check-circle"></i>
+
+    <h3>Thank You for Your Order!</h3>
+    <p>Your payment has been successfully processed. We are preparing your order and will notify you once it’s on its way.</p>
+</div>
+
+
+<div id="thankyouContainer" class="thankyou-message">
+    <!-- Order details will be loaded here -->
+  </div>
+
+   
+    
+    
+
+<p class="copy-rights"> <i class="bi bi-c-circle"></i> AB's Fashion.com 2025. All rights reserved.</p>
+
+
+
+<script>
+    var loader = document.getElementById('preloader');
+    var loader_text = document.getElementById('loader-text1')
+
+    window.addEventListener('load',function(){
+        loader_text.innerHTML='please wait a moment...'
+        
+        setTimeout(function (){
+            loader.style.display = "none";
+            
+
+        },500);
+    }
+)
+</script>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("thankyouContainer");
+    const orderHistory = JSON.parse(localStorage.getItem("orderHistory")) || [];
+
+    const orderIndex = orderHistory.length - 1;
+    const order = orderHistory[orderIndex];
+    const orderNo = "ABS" + (1001 + orderIndex);
+    const address = order.address;
+
+    const deliveryCharge = 49;
+    const gst = order.total * 0.03;
+    const grandTotal = order.total + deliveryCharge + gst;
+
+    // Static section first
+    container.innerHTML = `
+      <div class="order-header">
+        <p class="order-no">#Order No :- ${orderNo}</p>
+        <p class="delivery-time">Estimated delivery : 3-5 business days</p>
+        <p class="shipping-address">Shipping Address</p>
+        <div class="address-details">
+          <p>${address.fullName}</p>
+          <p>${address.street}, ${address.area}</p>
+          <p>${address.city}, ${address.district} - ${address.pincode}</p>
+          <p>Mobile: ${address.mobile}</p>
+        </div>
+        <div class="amount">
+          <p>Amount Paid :- ₹${grandTotal.toFixed(2)}</p>
+          <p>Payment Method :- ABs Card</p><br>
+          <p>Delivery Partner :- <img src="./xpressbees-logo.webp" alt="" class="xpreesbees"></p>
+        </div>
+      </div>
+
+      <div class="order-items" >
+        <p class="ordered-items">Ordered Items (${order.items.length} items)</p>
+        <div id="itemsContainer" class="item-info"></div>
+        <p class="billing">Billing Summary</p>
+        <div class="billing-details">
+          <p>Subtotal: ₹${order.total.toFixed(2)}</p>
+          <p>Delivery Charge: ₹${deliveryCharge.toFixed(2)}</p>
+          <p>GST (3%): ₹${gst.toFixed(2)}</p>
+          <p>Total Amount: ₹${grandTotal.toFixed(2)}</p>
+        </div>
+      </div>
+    `;
+
+    // Append each item-info using appendChild
+    const itemsContainer = document.getElementById("itemsContainer");
+    order.items.forEach(item => {
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "item-info";
+
+      itemDiv.innerHTML = `
+        <img src="${item.image}" class="cart-image" alt="${item.name}">
+        <p class="cart-name">${item.name}</p>
+        <p class="cart-size">Size: ${item.size}</p>
+        <p class="cart-quantity">Qty: ${item.quantity}</p>
+        <p class="cart-price">Price: ₹${(item.price * item.quantity).toFixed(2)}</p>
+      `;
+
+      itemsContainer.appendChild(itemDiv);
+    });
+  });
+</script>
+
+
+
+
+
+
+</body>
+</html>

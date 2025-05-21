@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+
+    
+    <link rel="icon" href="./fashion_logo1.png" type="">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="checkout.css">
+
+</head>
+<body>
+
+    <div id="preloader">
+        
+        <img src="./preloader.gif" alt=""><br>
+        <p id="loader-text"></p>
+    </div>
+
+    <!--------------------Saved Address Toast Message here-------------------->
+    <div id="toast_address" class="toast-address"> Address saved successfully...<i class="fa-solid fa-location-dot"></i></div>
+    <div id="toast_coupon" class="toast-coupon"> Wow!...Coupon Applied...<i class="fa-solid fa-money-bill"></i></div>
+
+
+
+   <!----------------------------------Header Section---------------------------------->
+    
+
+   <div class="menu-bar">
+    <a href="" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.png" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
+    
+    <ul>
+        
+    
+    <div class="profile">
+        <li><a href="#" id="profile"> <i class="fa-solid fa-user" ></i> Profile <i class="fas fa-caret-down"></i></a>
+    
+    <!--------------------------------------Drop down menu Section Here------------------------------>
+    
+    
+    <div class="dropdown-menu">
+    <ul>
+    <li><a href="saved_Addresses.html">Saved Address <i class="fa-duotone fa-solid fa-address-card"></i></a></li>  
+    <li><a href="card_details.html">My Card <i class="fa-solid fa-credit-card"></i></a></li>
+    <li><a href="forgot_password.html">Change Password <i class="fa-solid fa-key"></i></a></li>
+    <li><a href="#contact">About <i class="fa-solid fa-user"></i></a></li>
+    <li><a href="#contact">Contact us <i class="fa-solid fa-phone"></i></a></li>
+    <li><a href="login.html">LogOut <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+    </ul>
+    </div>
+    </div>
+    </li>
+    </ul>
+    </div>
+
+
+
+    
+
+    <h3 class="container1" >Items</h3>
+    
+    
+
+        <div class="items" id="address-scroll">
+
+            <div class="cart-items" >
+                <!-- Cart items will be dynamically added here -->
+                 <div id="output">
+        
+                 </div>
+            </div>
+            
+        </div>
+
+
+        <h3 class="container2">Order Summary</h3>
+
+        <div class="summary">
+            <p>Sub Total
+                <span class="amount1" id="totalPrice"> 0.00</span>
+            </p>
+
+            <p>Shipping Charges
+                <span class="amount1" id="total1"> 49.00</span>
+            </p>
+
+            <p>GST 3%
+                <span class="amount1" id="total2"></span>
+            </p><hr>
+
+            <p>Total Amount
+                <span class="amount1" id="total3"> 0.00</span>
+            </p>
+
+
+            
+              <div class="saved-address-container">
+                    <p>Saved Addresses</p>
+                    <div class="saved-address" id="address-scroll"></div>
+                    <button class="place-order" onclick="saveOrder()">Place Order <i class="fa-solid fa-arrow-right-long"></i></button>
+            
+            
+                    
+              </div>
+              
+              
+            
+        </div>
+
+        <p class="shipping-head">Shipping Details</p>
+
+ <!-- Trigger Button -->
+ <p class="shipping-message">If you want add new address, please proceed below button.</p>
+<button id="openModalBtn"><i class="fa-solid fa-plus"></i> Add New Address</button>
+
+<!-- Modal Structure -->
+<div id="addressModal" class="modal1">
+  <div class="modal-content1">
+    
+    <span class="close" id="closeModalBtn">&times;</span>
+    <h2>Add Address</h2>
+    <div class="container">
+      <div class="first_name">
+        <label>First Name</label><br>
+        <input class="modal-first-name" type="text" placeholder="Enter your first name" required>
+      </div>
+
+      <div class="last_name">
+        <label>Last Name</label><br>
+        <input class="modal-last-name" type="text" placeholder="Enter your last name" required>
+      </div>
+
+      <div class="street">
+        <label>Door no: / Street</label><br>
+        <input class="modal-street" type="text" size="60" placeholder="Enter Door no: / street" required>
+      </div>
+
+      <div class="area">
+        <label>Area / Locality / Landmark</label><br>
+        <input class="modal-area" type="text" size="60" placeholder="Enter Area/Locality/Landmark" required>
+      </div>
+
+      <div class="city">
+        <label>City</label><br>
+        <input class="modal-city" type="text" placeholder="Enter city" required>
+      </div>
+
+      <div class="district">
+        <label>District</label><br>
+        <input class="modal-district" type="text" placeholder="Enter District" required>
+      </div>
+
+      <div class="pincode">
+        <label>Pincode</label><br>
+        <input class="modal-pincode" type="text" placeholder="Enter pincode" required>
+      </div>
+
+      <div class="number">
+        <label>Mobile No:</label><br>
+        <input class="modal-mobile" type="text" placeholder="Enter Mobile No:" required>
+      </div><br>
+
+      <button class="address" type="submit" onclick="showToast_address();saveAddress();closeModal();">Save Address </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        <!-- Edit Address Modal -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="cancelEdit()">&times;</span>
+      
+  
+      <label>Full Name:</label>
+      <input type="text" id="editFullName"><br>
+  
+      <label>Street:</label>
+      <input type="text" id="editStreet"><br>
+  
+      <label>Area:</label>
+      <input type="text" id="editArea"><br>
+  
+      <label>City:</label>
+      <input type="text" id="editCity"><br>
+  
+      <label>District:</label>
+      <input type="text" id="editDistrict"><br>
+  
+      <label>Pincode:</label>
+      <input type="text" id="editPincode"><br>
+  
+      <label>Mobile:</label>
+      <input type="text" id="editMobile"><br>
+  
+      <button class="save-changes" onclick="saveEditedAddress()">Save Changes</button>
+      
+    </div>
+  </div>
+  
+
+  
+  <script>
+    function closeModal() {
+      document.getElementById("addressModal").style.display = "none";
+    }
+    
+    document.getElementById("openModalBtn").onclick = function () {
+      document.getElementById("addressModal").style.display = "block";
+    };
+    
+    document.getElementById("closeModalBtn").onclick = function () {
+      closeModal();
+    };
+    
+    window.onclick = function (event) {
+      const modal = document.getElementById("addressModal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+    </script>
+    
+        
+
+        <!----------------------------------Show Toast Saved Address message section here--------------------->
+<script>
+    function showToast_address() {
+        var toast = document.getElementById("toast_address");
+        toast.classList.add("show");
+        setTimeout(function() {
+            toast.classList.remove("show");
+        }, 3000); // Hide toast after 3 seconds
+    }
+</script>
+
+
+ <!----------------------------------Adding the products to cart section here------------------------->
+ <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const cartItemsContainer = document.querySelector(".cart-items");
+        const totalPriceElement = document.getElementById("totalPrice");
+        const total1 = document.getElementById("total1");
+        const total2 = document.getElementById("total2");
+        const total3 = document.getElementById("total3");
+    
+        function loadCartFromLocalStorage() {
+            const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+
+            
+    
+            cartData.forEach(product => {
+                const itemDiv = document.createElement("div");
+                itemDiv.classList.add("cart-item");
+    
+                itemDiv.innerHTML = `
+                    <img src="${product.image}" class="cart-image" alt="${product.name}" />
+                    <p class="cart-name">${product.name}</p>
+                    <p class="cart-size">Size: <span>${product.size}</span></p>
+                    <p class="quantity-number">Qty: <span>${product.quantity}</span></p>
+                    <p class="cart-price">${(parseFloat(product.price) * product.quantity).toFixed(2)}</p>
+                    <hr>
+                `;
+    
+                cartItemsContainer.appendChild(itemDiv);
+            });
+    
+            updateTotalPrice(cartData);
+        }
+
+        
+    
+        function updateTotalPrice(cartData) {
+            let total = 0;
+            cartData.forEach(product => {
+                total += parseFloat(product.price) * product.quantity;
+            });
+    
+            totalPriceElement.textContent = `Total: ₹${total.toFixed(2)}`;
+            total1.textContent = `₹49.00`;
+            total2.textContent = `₹${(total * 0.03).toFixed(2)}`;
+            const gst = parseFloat(total2.textContent.replace("₹", ""));
+            const finalTotal = total + 49 + gst;
+    
+            total3.textContent = `₹${finalTotal.toFixed(2)}`;
+
+            localStorage.setItem("checkoutTotalAmount", finalTotal.toFixed(2));
+        }
+    
+            loadCartFromLocalStorage();
+        });
+
+    </script>
+
+
+
+
+<script>
+
+function saveAddress() {
+    const fullName = document.querySelector(".modal-first-name").value.trim() + " " +
+                     document.querySelector(".modal-last-name").value.trim();
+    const street = document.querySelector(".modal-street").value.trim();
+    const area = document.querySelector(".modal-area").value.trim();
+    const city = document.querySelector(".modal-city").value.trim();
+    const district = document.querySelector(".modal-district").value.trim();
+    const pincode = document.querySelector(".modal-pincode").value.trim();
+    const mobile = document.querySelector(".modal-mobile").value.trim();
+
+    if (!fullName || !street || !area || !city || !district || !pincode || !mobile) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    const address = { fullName, street, area, city, district, pincode, mobile };
+    
+    let savedAddresses = JSON.parse(localStorage.getItem("savedAddresses")) || [];
+    savedAddresses.push(address);
+    localStorage.setItem("savedAddresses", JSON.stringify(savedAddresses));
+
+    displaySavedAddresses();
+  }
+
+  function displaySavedAddresses() {
+  const savedAddresses = JSON.parse(localStorage.getItem("savedAddresses")) || [];
+  const selectedIndex = localStorage.getItem("selectedAddressIndex");
+  const container = document.querySelector(".saved-address");
+  container.innerHTML = "";
+
+  savedAddresses.forEach((address, index) => {
+    const div = document.createElement("div");
+    div.classList.add("address-card");
+
+    div.innerHTML = `
+    
+      <input type="radio" class="radio-icon" name="selectedAddress" value="${index}" 
+        ${selectedIndex == index ? "checked" : ""} 
+        onchange="selectAddress(${index})">
+        
+      <span class="add_fullName">${address.fullName}</span> 
+                    <button class="edit-button" onclick="editAddress(${index})"><i class="fa-solid fa-pen-to-square"></i>edit</button><br>
+                    <span class="add_street">${address.street}</span>, <span class="add_area">${address.area}</span><br>
+                   <span class="add_city"> ${address.city}</span>,<span class="add_district"> ${address.district}</span>, <span class="add_pincode">${address.pincode}</span><br>
+                    <span class="add_mobile">Mobile: ${address.mobile}</span><br><br>
+                    <hr><br>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+function selectAddress(index) {
+  localStorage.setItem("selectedAddressIndex", index);
+}
+
+
+  function closeModal() {
+    document.getElementById("addressModal").style.display = "none";
+  }
+
+  document.addEventListener("DOMContentLoaded", displaySavedAddresses);
+
+
+
+    
+    function selectAddress(index) {
+  const addresses = JSON.parse(localStorage.getItem("savedAddresses")) || [];
+  const selected = addresses[index];
+  localStorage.setItem("selectedAddress", JSON.stringify(selected));
+}
+
+
+    
+    // ✅ New function: Save current form address
+    function saveCurrentAddress() {
+        const fullName = document.querySelector(".first_name input").value + " " + document.querySelector(".last_name input").value;
+        const street = document.querySelector(".street input").value;
+        const area = document.querySelector(".area input").value;
+        const city = document.querySelector(".city input").value;
+        const district = document.querySelector(".district input").value;
+        const pincode = document.querySelector(".pincode input").value;
+        const mobile = document.querySelector(".number input").value;
+    
+        const currentAddress = {
+            fullName,
+            street,
+            area,
+            city,
+            district,
+            pincode,
+            mobile
+        };
+    
+        // Save to localStorage
+        localStorage.setItem("selectedAddress", JSON.stringify(orderHistory));
+        saveAddress();
+    
+        
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        displaySavedAddresses();
+    });
+    
+        function saveOrder() {
+            const selectedAddress = JSON.parse(localStorage.getItem("selectedAddress"));
+            const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            if (!selectedAddress || cartData.length === 0) {
+                alert("Missing address or cart data!");
+                return;
+            }
+        
+            const order = {
+                address: selectedAddress,
+                items: cartData,
+                total: cartData.reduce((sum, item) => sum + (parseFloat(item.price) * item.quantity), 0),
+                date: new Date().toLocaleString()
+            };
+        
+            let orderHistory = JSON.parse(localStorage.getItem("orderHistory")) || [];
+            orderHistory.push(order);
+            localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
+        
+            // Optionally clear cart after placing order
+            localStorage.removeItem("cart");
+
+            window.location.href = "payment.html"; // Redirect to order history page
+          
+           
+        }
+        </script>
+        
+
+<script>
+    function useThisAddress(index) {
+        localStorage.setItem("selectedAddressIndex", index);
+        displaySavedAddresses();
+    }
+    
+    function setAsDefault(index) {
+        const savedAddresses = JSON.parse(localStorage.getItem("savedAddresses")) || [];
+        savedAddresses.forEach((address, idx) => {
+            address.default = idx === index;
+        });
+        localStorage.setItem("savedAddresses", JSON.stringify(savedAddresses));
+        displaySavedAddresses();
+    }
+    
+    function deleteAddress(index) {
+        const savedAddresses = JSON.parse(localStorage.getItem("savedAddresses")) || [];
+        savedAddresses.splice(index, 1);
+        localStorage.setItem("savedAddresses", JSON.stringify(savedAddresses));
+        displaySavedAddresses();
+    }
+    
+    
+    </script>
+    
+    <script>
+        function editAddress(index) {
+    const savedAddresses = JSON.parse(localStorage.getItem("savedAddresses")) || [];
+    const address = savedAddresses[index];
+    currentEditIndex = index;
+
+    document.getElementById("editFullName").value = address.fullName;
+    document.getElementById("editStreet").value = address.street;
+    document.getElementById("editArea").value = address.area;
+    document.getElementById("editCity").value = address.city;
+    document.getElementById("editDistrict").value = address.district;
+    document.getElementById("editPincode").value = address.pincode;
+    document.getElementById("editMobile").value = address.mobile;
+
+    document.getElementById("editModal").style.display = "block";
+}
+
+function cancelEdit() {
+    currentEditIndex = null;
+    document.getElementById("editModal").style.display = "none";
+}
+
+function saveEditedAddress() {
+    const savedAddresses = JSON.parse(localStorage.getItem("savedAddresses")) || [];
+    if (currentEditIndex === null) return;
+
+    savedAddresses[currentEditIndex] = {
+        ...savedAddresses[currentEditIndex],
+        fullName: document.getElementById("editFullName").value.trim(),
+        street: document.getElementById("editStreet").value.trim(),
+        area: document.getElementById("editArea").value.trim(),
+        city: document.getElementById("editCity").value.trim(),
+        district: document.getElementById("editDistrict").value.trim(),
+        pincode: document.getElementById("editPincode").value.trim(),
+        mobile: document.getElementById("editMobile").value.trim()
+    };
+
+    localStorage.setItem("savedAddresses", JSON.stringify(savedAddresses));
+    displaySavedAddresses();
+    cancelEdit();
+}
+
+    </script>
+    
+
+<script>
+    function applyCoupon() {
+    let couponCode = document.getElementById("couponCode").value;
+    let discountMessage = document.getElementById("discountMessage");
+    let discount = 0;
+
+    // Get current total value from the UI
+    let currentTotal = parseFloat(total3.textContent.replace("₹", ""));
+
+    if (couponCode === "ABSFASHION10") {
+        discount = 10;
+    } else if (couponCode === "ABSFASHION20") {
+        discount = 20;
+    } else if (couponCode === "ABSFASHION30") {
+        discount = 30;
+    } else {
+        discountMessage.textContent = "Invalid coupon code!";
+        discountMessage.style.color = "red";
+        localStorage.removeItem("discountInfo"); // Remove old discount if any
+        updateTotalPrice();
+        return;
+    }
+
+    // Calculate discount
+    let savedAmount = (currentTotal * (discount / 100)).toFixed(2);
+    let discountedTotal = (currentTotal - savedAmount).toFixed(2);
+
+    // Update UI
+    discountMessage.textContent = `Coupon applied! You saved ₹${savedAmount}`;
+    discountMessage.style.color = "green";
+    total3.textContent = `₹${discountedTotal}`;
+
+    // ✅ Save discount info to localStorage
+    const discountInfo = {
+        code: couponCode,
+        percent: discount,
+        savedAmount: savedAmount,
+        discountedTotal: discountedTotal
+    };
+    localStorage.setItem("discountInfo", JSON.stringify(discountInfo));
+
+    updateTotalPrice();
+}
+
+                            
+</script>
+
+
+<script>
+    var loader = document.getElementById('preloader');
+    var loader_text = document.getElementById('loader-text')
+
+    window.addEventListener('load',function(){
+        loader_text.innerHTML='Almost there! Complete your purchase before its gone!'
+        
+        setTimeout(function (){
+            loader.style.display = "none";
+            
+
+        },1500);
+    }
+)
+</script>
+
+
+<script>
+  const body = document.getElementById('address-scroll');
+
+  body.addEventListener('mouseenter', () => {
+    body.style.overflowY = 'auto'; // Enable scroll on hover
+  });
+
+  body.addEventListener('mouseleave', () => {
+    body.style.overflowY = 'hidden'; // Disable scroll when mouse leaves
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const container = document.getElementById("checkout-items");
+  const product = JSON.parse(localStorage.getItem("checkoutItem"));
+
+  if (!product) {
+    container.innerHTML = "<p>No product available for checkout.</p>";
+    return;
+  }
+
+  const item = document.createElement("div");
+  item.className = "checkout-item";
+  item.innerHTML = `
+    <img src="${product.image}" alt="${product.name}" width="100">
+    <div>
+      <p><strong>${product.name}</strong></p>
+      <p>Size: ${product.size}</p>
+      <p>Quantity: ${product.quantity}</p>
+      <p>Price: ₹${(product.price * product.quantity).toFixed(2)}</p>
+    </div>
+  `;
+
+  container.appendChild(item);
+});
+
+</script>
+
+
+
+</body>
+</html>

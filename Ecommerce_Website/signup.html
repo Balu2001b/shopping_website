@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+
+    <link rel="icon" href="./fashion_logo1.jpg" type="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+           background-color: #DCDCDC;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 850px;
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .container .forms {
+            height: 100%;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .container .form-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-content .login-form,
+        .form-content .signup-form {
+            width: calc(100% / 2 - 25px);
+            transition: all 0.3s ease;
+        }
+
+        .container.active .login-form {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(-100%);
+        }
+
+        .container:not(.active) .signup-form {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(100%);
+        }
+
+        .container.active .signup-form {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-100%);
+        }
+
+        .container:not(.active) .login-form {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(0%);
+        }
+
+        .container .title {
+            position: relative;
+            font-size: 24px;
+            font-weight: 600;
+            
+        }
+
+        .container .title:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 3px;
+            width: 30px;
+           
+        }
+
+        .container .input-boxes {
+            margin-top: 30px;
+        }
+
+        .container .input-box {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            width: 100%;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .input-box input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            border: none;
+            padding: 0 30px;
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .input-box input:focus,
+        .input-box input:valid {
+            border-color: rgb(46, 44, 44);
+        }
+
+        .input-box i {
+            position: absolute;
+            color: black;
+            font-size: 17px;
+        }
+
+        .container .text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+    
+        .container a {
+            text-decoration: none;
+        }
+
+        .container a:hover {
+            text-decoration: underline;
+        }
+
+        .container .button {
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        .container .button input {
+            color: #fff;
+            background: linear-gradient(#000811 0%, #0c0c0c 100%);
+            border-radius: 6px;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .container .button input:hover {
+            background: linear-gradient(-135deg, #515152 0%, #272529 100%);
+        }
+
+        .container .login-text,
+        .container .sign-up-text {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .container .login-text a,
+        .container .sign-up-text a {
+            color: #0073ff;
+            font-weight: 600;
+        }
+
+        .image img{
+
+          position: absolute;
+          top: -10px;
+          left: 400px;
+          height: 500px;
+          width: 400px;
+        }
+        .image h2{
+
+position: relative;
+top: -400px;
+left: 250px;
+
+}
+.image1 img{
+
+position: absolute;
+top: -10px;
+left: 400px;
+height: 500px;
+width: 350px;
+}
+
+        @media (max-width: 730px) {
+            .container .form-content {
+                flex-direction: column;
+            }
+
+            .form-content .login-form,
+            .form-content .signup-form {
+                width: 100%;
+            }
+
+            .container.active .login-form {
+                transform: translateX(-150%);
+            }
+
+            .container.active .signup-form {
+                transform: translateX(0%);
+            }
+
+            .container:not(.active) .login-form {
+                transform: translateX(0%);
+            }
+
+            .container:not(.active) .signup-form {
+                transform: translateX(150%);
+            }
+        }
+        .ab-logo{
+    position: absolute;
+    top: 0;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #000;
+    background-color: #000;
+
+}
+.ab-logo img{
+    height: 50px;
+    width: 50px;
+    margin-left: 20px;
+    margin-top: 10px;
+    border-radius: 50%;
+
+}
+.ab-logo p{
+
+    position: absolute;
+    top: 25px;
+    left: 80px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+ 
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+    <div class="ab-logo">
+        <img src="./fashion_logo1.png" alt="">
+        <a href=""><p>AB's Fashion.com</p></a>
+    </div>
+
+
+    <div class="container" id="container">
+        <div class="forms">
+            <div class="form-content">
+                <!-- Login Form -->
+                <div class="login-form">
+                    <div class="title">Signup</div>
+                    <form action="" id="signupForm">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" id="username" placeholder="Enter your name" name="name" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="loginEmail" placeholder="Enter your email" name="email" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="loginPassword" placeholder="Create a password" name="password" required>
+                            </div>
+                            
+                            <div class="button input-box">
+                                <input type="submit" value="Signup">
+                            </div>
+                            <div class="login-text">Already have an account? <a href="login.html" id="signup-link">Login</a></div>
+                            <div class="image1">
+                              
+                              <img src="./register.svg" alt="">
+                            </div>
+                        </div>
+                      
+                    </form>
+                </div>
+               
+
+
+               
+        </div>
+    </div>
+
+    
+    <script>
+        const link = document.getElementById('signup-link');
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.body.style.transition = 'opacity 0.5s ease';
+          document.body.style.opacity = '0';
+          setTimeout(() => {
+            window.location = link.href;
+          }, 500);
+        });
+      </script>
+    
+</body>
+</html>

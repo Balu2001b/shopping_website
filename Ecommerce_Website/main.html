@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en" id="body">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AB's Fashion.com</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="responsive_screen.css">
+
+    <link rel="icon" href="./fashion_logo1.png" type="">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    
+</head>
+
+
+<body>
+
+    
+    <!----------------------------------Preloader Section Here--------------------------------->
+
+    <div id="preloader">
+        <p id="loader-text1"></p>
+        <img src="./preloader.gif" alt="">
+    </div>
+
+<div id="toast_favourite" class="toast-favourite"> Added to Favourites <i class="fa-regular fa-heart"></i></div>
+
+    <!----------------------------------Header Section---------------------------------->
+    
+
+    <div class="menu-bar">
+        <a href="" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.png" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
+        
+        <ul>
+            
+        <li><a href="myorders.html" class="myorders">My Orders <i class="fa-solid fa-bag-shopping"></i></a></li>
+        <li><a href="#" class="cart-icon" onclick="toggleCart()">Cart <i class="bi bi-cart-plus"></i><span class="quantity" id="cart-value">0</span></a></li>
+        </li>
+        
+        <div class="profile">
+            <li><a href="#" id="profile" class="profile"> <i class="bi bi-person"></i> Profile <i class="fas fa-caret-down"></i></a>
+        
+        <!--------------------------------------Drop down menu Section Here------------------------------>
+        
+        
+        <div class="dropdown-menu">
+        <ul>
+        <li><a href="saved_Addresses.html">Saved Address <i class="bi bi-person-vcard"></i></a></li>  
+        <li><a href="card_details.html">My Card <i class="bi bi-credit-card"></i></a></li>
+        <li><a href="forgot_password.html">Change Password <i class="bi bi-key"></i> </a></li>
+        <li><a href="#contact">About <i class="bi bi-person"></i></a></li>
+        <li><a href="#contact">Contact us <i class="bi bi-telephone"></i></a></li>
+        <li><a href="login.html">LogOut <i class="bi bi-box-arrow-right"></i></a></li>
+        </ul>
+        </div>
+        </div>
+        </li>
+        </ul>
+        </div>
+
+
+
+       <!------------------------------------Sliding Shopping Cart Toggle section here------------------------------->
+
+       <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+       <div class="cart-sidebar" id="cartSidebar">
+           <div class="cart-header">
+               <h3>Shopping Cart <i class="fa-solid fa-cart-shopping"></i></h3>
+               <button class="close-btn" onclick="toggleCart()">&times;</button>
+           </div>
+           <div class="cart-items" id="cart">
+               <!-- Cart items will be dynamically added here -->
+               <p id="empty-cart-message">Your cart is ready for its next adventure!</p>
+            
+                <div id="output">
+   
+                </div>
+           </div>
+           <div class="cart-footer">
+               <p id="totalPrice">Total: ₹ 0.00</p>
+               <a href="checkout.html" target="_blank"><button class="checkout-btn">Checkout</button></a>
+           </div>
+       </div>
+
+
+    
+
+
+
+
+    <!----------------------------------Search bar Section Here--------------------------------->
+
+        
+    <div class="logo-searchbar">
+        <input type="text" class="search-input" id="search-bar" placeholder="Search shirts, pants, perfumes, etc." size="50" oninput="liveProductPreview()">
+        <button type="submit" class="search-button" onclick="filterProducts()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          
+        </button>
+      
+        <!-- Live product preview box -->
+        <div id="live-preview-box"></div>
+      </div>
+      
+      <!-- Full product list -->
+      <div id="product-list"></div>
+      
+      
+        
+
+        
+
+        
+        
+        
+        
+        <!-----------------------------------------------Shopping Product Section Here--------------------------------->
+        <div class="container">
+            <p class="title-products">PRODUCT LIST</p>
+            <div class="listProduct">
+       
+
+            </div>
+            
+          
+        </div>
+    
+        
+
+
+        <!-------------------------------------Footer Section--------------------------------->
+
+
+<footer class="foot">
+    <div class="about">
+        <p><a href="" class="head" >AB's Fashion.com </a></p><br>
+        <p class="caption">Our stand is every men has maintain <br> unique style with our brand.</p>
+        <header class="heading">
+    
+                <ul class="head1">
+                <p style="font-weight: bold;">Company <br>
+                   <a href="" class="list12"><li>Carrers</li></a><br>
+                   <a href="" class="list12"><li>Blog</li></a>
+                   </p>
+                </ul>
+            <ul class="head1" >
+                <p style="font-weight: bold;">Resources <br>
+                <a href=""class="list12"><li>Refund Policy</li></a><br>
+                <a href=""class="list12"><li>Privacy</li></a>
+                <a href=""class="list12"><li>Terms</li></a>
+            </p>
+            </ul>
+            <ul class="head1">
+                <p style="font-weight: bold;">Social Connect <br>
+                <a href="" class="list12"><li><i class="fa-brands fa-youtube"></i> Youtube</li></a><br>
+                <a href="" class="list12"><li><i class="fa-brands fa-linkedin"></i> Linkedin</li></a>
+                <a href="" class="list12"><li><i class="fa-brands fa-instagram"></i> Instagram</li></a>
+                <a href="" class="list12"><li><i class="fa-brands fa-facebook"></i> Facebook</li></a>
+            </p>
+            </ul>
+            <ul class="head1">
+                <p style="font-weight: bold;">Contact <br><br>
+                <p style="color: rgb(192, 189, 189);"><i class="fa-solid fa-location-dot"></i> Old Raja Rajeswari peta,<br>Vijayawada,Andhra Pradesh</p><br>
+                <a href="" id="contact" class="list12"><li><i class="fa-solid fa-envelope"></i> valluribalaji59@gmail.com</li></a>
+                <a href="" class="list12"><li><i class="fa-solid fa-phone"></i> +91 9494585938</li></a>
+                <a href="" class="list12"><li><i class="fa-brands fa-whatsapp"></i> WhatsApp us </li></a>
+            </p>
+            </ul>
+        </header>
+    
+        <div class="copy-rights12">
+            <p><i class="fa-regular fa-copyright"></i> AB's Fashion.com 2025. All rights reserved.</p>
+            <p>When you visit or interact with our sites, services or tools, we or our authorised service providers may use cookies for storing information to <br>help provide you with a better, faster and safer experience and for marketing purposes.</p>
+        </div>
+        </div>
+</footer>
+
+
+
+
+
+
+
+<!--------------------------------------------Scripting Section Here------------------------------------------>
+        
+
+        
+
+    <script src="index.js"></script>
+    <script src="products.js"></script>
+   
+    
+
+<!----------------------------------Products Fetching section here-------------------------------------------->
+
+    <script>
+        let products = null;
+    // get datas from file json
+    fetch('products.json')
+        .then(response => response.json())
+        .then(data => {
+            products = data;
+            showDetail();
+    })
+    
+    function showDetail(){
+    // remove datas default from HTML
+    let detail = document.querySelector('.detail');
+    let productId =  new URLSearchParams(window.location.search).get('id');
+    let thisProduct = products.filter(value => value.id == productId)[0];
+    //if there is no product with id = productId => return to home page
+    if(!thisProduct){
+        window.location.href = "/";
+    }
+    
+    detail.querySelector('.image img').src = thisProduct.image;
+    detail.querySelector('.name').innerText = thisProduct.name;
+    detail.querySelector('.price').innerText = 'Rs.' + thisProduct.price;
+    detail.querySelector('.description').innerText = '' + thisProduct.description;
+    const sizeSelect = document.getElementById("size-select");
+          sizeSelect.innerHTML = "";
+        
+          const sizesFromJSON = [
+            { text: thisProduct.size2, value: "" },
+            { text: thisProduct.small, value: thisProduct.small },
+            { text: thisProduct.medium, value: thisProduct.medium },
+            { text: thisProduct.large, value: thisProduct.large },
+            { text: thisProduct.xl, value: thisProduct.xl },
+            { text: thisProduct.xxl, value: thisProduct.xxl },
+          ];
+        
+          sizesFromJSON.forEach((size) => {
+            const option = document.createElement("option");
+            option.textContent = size.text;
+            option.value = size.value;
+            if (size.value === "") {
+              option.disabled = true;
+              option.selected = true;
+            }
+            sizeSelect.appendChild(option);
+          });
+    
+    (products.filter(value => value.id != productId)).forEach(product => {
+        let newProduct = document.createElement('a');
+        newProduct.href = 'products.html?id=' + product.id;
+        newProduct.classList.add('item');
+        newProduct.innerHTML = 
+        `<img src="${product.image}" alt="" >
+        <h2>${product.name}</h2>
+        <div class="price">Rs.${product.price}</div>`;
+        listProduct.appendChild(newProduct);
+    });
+    
+    }
+    </script>
+
+    
+
+
+   
+<!----------------------------------Adding the products to cart section here------------------------------------->
+
+ <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+let cartItems = document.querySelector(".cart-items");
+let totalPriceElement = document.getElementById("totalPrice");
+
+
+
+if (!cartItems) {
+    console.error("Cart container not found!");
+    return;
+}
+
+// Load cart items from local storage on page load
+loadCartFromLocalStorage();
+
+document.getElementById("loadData").addEventListener("click", function () {
+    let urlParams = new URLSearchParams(window.location.search);
+    let productId = urlParams.get("id");
+
+    if (productId) {
+        loadProductById(productId);
+    }
+});
+
+
+//--------------------------------Loading the products from JSON file-------------------------------------------//
+
+function loadProductById(productId) {
+    fetch("products.json")
+        .then(response => {
+            if (!response.ok) throw new Error("Network response was not ok");
+            return response.json();
+        })
+        .then(data => {
+            let product = data.find(p => p.id == productId);
+
+            if (product) {
+                product.size = selectedSize;
+                addProductToCart(product);
+                saveCartToLocalStorage();
+            } else {
+                alert("Product not found.");
+            }
+        })
+        .catch(error => console.error("Error loading product:", error));
+}
+
+
+//---------------------------------Toggle the empty cart message section here------------------------------------//
+
+
+function toggleEmptyCartMessage() {
+    const cartItems = document.querySelectorAll(".cart-item");
+    const message = document.getElementById("empty-cart-message");
+
+    if (cartItems.length === 0) {
+        message.style.display = "block";
+    } else {
+        message.style.display = "none";
+    }
+}
+
+
+
+
+
+//-------------------------------------------Adding the products to cart section here----------------------------------//
+
+function addProductToCart(product, fromStorage = false) {
+    let existingProduct = document.querySelector(`.cart-item[data-id="${product.id}"][data-size="${product.size}"]`);
+
+    const quantityToAdd = product.quantity || 1;
+
+    if (existingProduct) {
+        if (fromStorage) return; // Don't increase if loading from storage
+
+        const quantityElement = existingProduct.querySelector(".cart-quantity");
+        const quantityDisplay = existingProduct.querySelector(".quantity-display");
+        const priceElement = existingProduct.querySelector(".cart-price");
+        const unitPrice = parseFloat(existingProduct.getAttribute("data-price"));
+
+        let quantity = parseInt(quantityElement.textContent) + quantityToAdd;
+
+        quantityElement.textContent = quantity;
+        quantityDisplay.textContent = quantity;
+        priceElement.textContent = (unitPrice * quantity).toFixed(2);
+
+        saveCartToLocalStorage();
+        updateTotalPrice();
+        toggleEmptyCartMessage();
+        return;
+    }
+
+    // If not existing, create a new cart item
+    let productDiv = document.createElement("div");
+    productDiv.classList.add("cart-item");
+    productDiv.setAttribute("data-id", product.id);
+    productDiv.setAttribute("data-size", product.size);
+    productDiv.setAttribute("data-price", parseFloat(product.price).toFixed(2));
+
+    productDiv.innerHTML = `
+        <img src="${product.image}" class="cart-image" alt="${product.name}" />
+        <p class="cart-name">${product.name}</p>
+        <p class="cart-size">Size : <span>${product.size}</span></p>
+        <p class="quantity-number">Qty : <span class="quantity-display">${quantityToAdd}</span></p>
+
+        <div class="cart-quantity-controls">
+            <button class="decrement"><i class="fa-solid fa-arrow-down"></i></button>
+            <span class="cart-quantity">${quantityToAdd}</span>
+            <button class="increment"><i class="fa-solid fa-arrow-up"></i></button>
+        </div>
+
+        <p class="cart-price">${(parseFloat(product.price) * quantityToAdd).toFixed(2)}</p>
+        <i class="bi bi-trash"></i><hr>
+    `;
+
+    cartItems.appendChild(productDiv);
+    saveCartToLocalStorage();
+    updateTotalPrice();
+    
+
+    // Attach event listeners
+    productDiv.querySelector(".increment").addEventListener("click", function () {
+        updateQuantity(product.id, product.size, 1);
+    });
+
+    productDiv.querySelector(".decrement").addEventListener("click", function () {
+        updateQuantity(product.id, product.size, -1);
+    });
+
+    productDiv.querySelector(".bi-trash").addEventListener("click", function () {
+        removeProductFromCart(product.id, product.size);
+    });
+
+    saveCartToLocalStorage();
+    updateTotalPrice();
+    toggleEmptyCartMessage();
+    // After addProductToCart(product); 
+
+
+}
+
+
+//---------------------------------Updating the quantity of the products in cart section here--------------------------//
+
+
+function updateQuantity(productId, size, change) {
+    let productElement = document.querySelector(`.cart-item[data-id="${productId}"][data-size="${size}"]`);
+    if (!productElement) return;
+
+    const quantityElement = productElement.querySelector(".cart-quantity");
+    const quantityDisplay = productElement.querySelector(".quantity-display");
+    const priceElement = productElement.querySelector(".cart-price");
+    const unitPrice = parseFloat(productElement.getAttribute("data-price"));
+
+    let quantity = parseInt(quantityElement.textContent) + change;
+
+    if (quantity < 1) {
+        removeProductFromCart(productId, size);
+        return;
+    }
+
+    quantityElement.textContent = quantity;
+    quantityDisplay.textContent = quantity;
+    priceElement.textContent = (unitPrice * quantity).toFixed(2);
+
+    saveCartToLocalStorage();
+    recalculateCartValue();
+    updateTotalPrice();
+}
+
+
+//---------------------------------Saving the cart to local storage section here----------------------------------//
+
+function saveCartToLocalStorage() {
+    const cartItemsElements = document.querySelectorAll(".cart-item");
+    const cartData = [];
+
+    cartItemsElements.forEach(item => {
+        cartData.push({
+            id: item.getAttribute("data-id"),
+            size: item.getAttribute("data-size"),
+            price: item.getAttribute("data-price"),
+            quantity: parseInt(item.querySelector(".cart-quantity").textContent),
+            name: item.querySelector(".cart-name").textContent,
+            image: item.querySelector(".cart-image").getAttribute("src")
+        });
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cartData));
+}
+toggleEmptyCartMessage();
+
+
+
+
+//---------------------------------Loading the cart from local storage section here----------------------------------//
+
+
+function loadCartFromLocalStorage() {
+    const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cartData.forEach(product => {
+        addProductToCart(product, true); // prevent duplicate quantity/price
+    });
+
+    updateTotalPrice();
+    toggleEmptyCartMessage();
+}
+document.addEventListener("DOMContentLoaded", loadCartFromLocalStorage);
+
+
+
+//-----------------------------Remove products from cart section here----------------------------------//
+
+
+function removeProductFromCart(productId, size) {
+    document.querySelector(`.cart-item[data-id='${productId}'][data-size="${size}"]`).remove();
+    saveCartToLocalStorage();
+    updateTotalPrice();
+    recalculateCartValue();
+    toggleEmptyCartMessage();
+}
+
+
+
+//---------------------------------Updating the total price of the cart section here----------------------------------//
+
+
+function updateTotalPrice() {
+    let total = 0;
+    document.querySelectorAll(".cart-item").forEach(item => {
+        let price = parseFloat(item.querySelector(".cart-price").textContent.replace("$", ""));
+        total += price;
+    });
+    totalPriceElement.textContent = `Total: ₹${total.toFixed(2)}`;
+}
+});
+
+</script>
+
+
+<!------------------------------------Updating Cart value scripting section here-------------------------------->
+   
+<script>
+
+// Function to update cart value
+// Function to update cart value dynamically
+
+function updateCart(value) {
+    const cartValue = document.getElementById("cart-value");
+    let currentValue = parseInt(localStorage.getItem("cartValue")) || 0;
+
+    // Update value
+    currentValue += value;
+    currentValue = Math.max(0, currentValue); // Ensure value is not negative
+
+    // Update localStorage and UI
+    localStorage.setItem("cartValue", currentValue);
+    cartValue.textContent = currentValue;
+}
+
+
+
+
+
+
+
+// Function to recalculate total cart count
+function recalculateCartValue() {
+    let totalItems = 0;
+
+    document.querySelectorAll(".cart-quantity").forEach(item => {
+        totalItems += parseInt(item.textContent);
+    });
+
+    // Update both localStorage and UI
+    localStorage.setItem("cartValue", totalItems);
+    document.getElementById("cart-value").textContent = totalItems || 0; // Set to 0 if empty
+}
+
+// Recalculate cart value on page load
+document.addEventListener("DOMContentLoaded", function () {
+    recalculateCartValue();
+});
+
+
+
+
+</script>
+
+
+
+<!--------------------------------Sliding Cart Toggle section here------------------------->
+
+<script>
+    
+    let cartOpen = false;
+    let cartCount = 0;
+    let cartTotal = 0;
+function toggleCart() {
+  const cartSidebar = document.getElementById('cartSidebar');
+  const cartOverlay = document.getElementById('cartOverlay');
+
+  const isOpen = cartSidebar.classList.contains('open');
+
+  if (isOpen) {
+    cartSidebar.classList.remove('open');
+    cartOverlay.style.display = 'none';
+  } else {
+    cartSidebar.classList.add('open');
+    cartOverlay.style.display = 'block';
+  }
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+    function showToast_favourite() {
+        var toast = document.getElementById("toast_favourite");
+        toast.classList.add("show");
+        setTimeout(function() {
+            toast.classList.remove("show");
+        }, 1000); // Hide toast after 3 seconds
+    }
+</script>
+
+<!------------------------------------Preloader Animation Script Section Here-------------------------------->
+
+
+<script>
+    var loader = document.getElementById('preloader');
+    var loader_text = document.getElementById('loader-text1')
+
+    window.addEventListener('load',function(){
+        loader_text.innerHTML='please wait a moment...'
+        
+        setTimeout(function (){
+            loader.style.display = "none";
+            
+
+        },500);
+    }
+)
+</script>
+
+<!------------------------------------Search the products script section here----------------------->
+
+
+  
+<script>
+    let allProducts = [];
+    
+    // Load products
+    async function loadProducts() {
+      try {
+        const res = await fetch('products.json');
+        const data = await res.json();
+        allProducts = data;
+        displayProducts(allProducts); // Optional: show all at first
+      } catch (e) {
+        console.error('Error loading products:', e);
+      }
+    }
+    
+    // Show live product cards as preview
+    function liveProductPreview() {
+  const input = document.getElementById('search-bar').value.trim().toLowerCase();
+  const previewBox = document.getElementById('live-preview-box');
+  previewBox.innerHTML = '';
+
+  if (input === '') {
+    previewBox.style.display = 'none'; // 👈 Hides the preview when empty
+    return;
+  }
+
+  const matched = allProducts.filter(p =>
+    p.name.toLowerCase().includes(input)
+  ).slice(0, 5); // limit to 5
+
+  if (matched.length === 0) {
+    previewBox.style.display = 'none';
+    return;
+  }
+
+  matched.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'live-product-item';
+    div.innerHTML = `
+      <a href="products.html?id=${p.id}" class="info">
+        
+          <h5 class="title">${p.name}</h5>
+          
+        </a>
+    `;
+    div.addEventListener('click', () => {
+      document.getElementById('search-bar').value = p.name;
+      previewBox.style.display = 'none';
+      filterProducts();
+    });
+    previewBox.appendChild(div);
+  });
+
+  previewBox.style.display = 'block';
+}
+
+    
+    // Display full product list
+    function displayProducts(products) {
+      const productList = document.getElementById('product-list');
+      productList.innerHTML = '';
+    
+      if (products.length === 0) {
+        productList.innerHTML = '<p>No products found.</p>';
+        return;
+      }
+    
+      
+    }
+    
+    // Filter full product list
+    function filterProducts() {
+      const input = document.getElementById('search-bar').value.trim().toLowerCase();
+      const filtered = allProducts.filter(p =>
+        p.name.toLowerCase().includes(input)
+      );
+      displayProducts(filtered);
+      document.getElementById('live-preview-box').style.display = 'none';
+    }
+    
+    // Hide live preview on outside click
+    document.addEventListener('click', (e) => {
+      const box = document.getElementById('live-preview-box');
+      const input = document.getElementById('search-bar');
+      if (!box.contains(e.target) && e.target !== input) {
+        box.style.display = 'none';
+      }
+    });
+    
+    window.onload = loadProducts;
+    </script>
+    
+  
+
+    <script>
+        const cart1 = document.getElementById('cart');
+      
+        cart1.addEventListener('mouseenter', () => {
+          cart1.style.overflowY = 'auto'; // Enable scroll on hover
+        });
+      
+        cart1.addEventListener('mouseleave', () => {
+          cart1.style.overflowY = 'hidden'; // Disable scroll when mouse leaves
+        });
+      </script>
+    
+
+    <script>
+        const body = document.getElementById('body');
+      
+        body.addEventListener('mouseenter', () => {
+          body.style.overflowY = 'auto'; // Enable scroll on hover
+        });
+      
+        body.addEventListener('mouseleave', () => {
+          body.style.overflowY = 'hidden'; // Disable scroll when mouse leaves
+        });
+      </script>
+
+
+
+
+
+
+
+<script src="products.js"></script>
+<script src="index.js"></script>
+
+      
+
+    
+</body>
+</html>

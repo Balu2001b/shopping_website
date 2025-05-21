@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Gateway</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./fashion_logo1.png" type="">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
+  integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --secondary: #50e3c2;
+      --gray-light: #f0f0f0;
+      --gray-dark: #333;
+      --card-width: 320px;
+      --card-height: 200px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #e0e5ec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .payment-container {
+      display: flex;
+      gap: 40px;
+      max-width: 900px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    /* Card Preview */
+    .card-wrapper {
+      perspective: 1200px;
+      flex: 1 1 var(--card-width);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .credit-card {
+      width: var(--card-width);
+      height: var(--card-height);
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .credit-card.flipped {
+      transform: rotateY(180deg);
+    }
+    .credit-card .side {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      color: #fff;
+      overflow: hidden;
+    }
+    .credit-card .front {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .credit-card .back {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transform: rotateY(180deg);
+      padding: 20px;
+    }
+    /* Front details */
+    .chip {
+      width: 50px; height: 40px;
+      background: linear-gradient(90deg, #d4af37, #f1c27d);
+      border-radius: 6px;
+    }
+    .card-logo {
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+    .number {
+      letter-spacing: 2px;
+      font-size: 1.1em;
+    }
+    .labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75em;
+    }
+    .labels div { text-transform: uppercase; opacity: 0.8; }
+    .values {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9em;
+      margin-top: 4px;
+    }
+    /* Back details */
+    .mag-stripe {
+      background: #000;
+      height: 40px;
+      margin-bottom: 20px;
+    }
+    .sig-strip {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .sig-strip div {
+      background: #fff;
+      height: 30px;
+      flex: 1;
+      margin-right: 10px;
+    }
+    .sig-strip span {
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .cvv-box {
+      text-align: right;
+      font-size: 0.9em;
+      letter-spacing: 2px;
+    }
+    /* Form */
+    .payment-form {
+      flex: 1 1 200px;
+    }
+    .payment-form h2 {
+      margin-bottom: 20px;
+      margin-top: -10px;
+      margin-left: -170px;
+      font-size: 25px;
+      color: red;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--gray-dark);
+    }
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    .btn-pay {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.1s;
+    }
+    .btn-pay:hover { background: var(--secondary); }
+    .btn-pay:active { transform: scale(0.98); }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .payment-container { gap: 20px; }
+      .card-wrapper, .payment-form { flex: 1 1 100%; }
+      .payment-form { order: -1; }
+    }
+
+    .ab_icon{
+
+height: 50px;
+width: 50px;
+border-radius: 50%;
+position: absolute;
+left: 5px;
+top:20px;
+cursor: pointer;
+
+
+}
+.logo {
+color: white;
+font-size: 18px;
+margin-top: 20px;
+
+}
+.logo .sp{
+
+    font-size: 12px;
+    margin-left: 190px;
+}
+
+
+.menu-bar {
+background-color: black;
+position: fixed;
+top: 0;
+height: 80px;
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 5%;
+
+}
+
+#preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
+	backdrop-filter: blur(2px); /* applies blur to whatever's behind */
+	-webkit-backdrop-filter: blur(10px); /* for Safari */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 99999;
+}
+
+
+
+#loader-text1{
+
+    position: absolute;
+    top: 420px;
+    left: 600px;
+    font-weight: bold;
+}
+.copy-rights{
+
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+text-align: center;
+padding: 10px 0;
+background-color: #f1f1f1;
+color: #333;
+font-size: 14px;
+font-weight: 500;
+}
+  </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <p id="loader-text1"></p>
+        <img src="./preloader.gif" alt="">
+    </div>
+
+
+  <div class="menu-bar">
+    <a href="" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.png" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
+    
+    
+    </div>
+
+
+    
+  <div class="payment-container">
+    <!-- Card Preview -->
+    
+    <div class="card-wrapper">
+      <div class="credit-card" id="card">
+        <!-- Front -->
+        <div class="side front">
+          <div class="chip"></div>
+          <div class="card-logo">AB's Card</div>
+          <div class="number" id="display-number">#### #### #### ####</div>
+          <div class="labels">
+            <div>Card Holder</div>
+            <div>Expires</div>
+          </div>
+          <div class="values">
+            <div id="display-name">FULL NAME</div>
+            <div id="display-expiry">MM/YY</div>
+          </div>
+        </div>
+        <!-- Back -->
+        <div class="side back">
+          <div class="mag-stripe"></div>
+          <div class="sig-strip">
+            <div></div><span>CVV</span>
+          </div>
+          <div class="cvv-box" id="display-cvv">###</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Form -->
+    <form class="payment-form" onsubmit="return processPayment();">
+      <h2>Secure Checkout </h2>
+
+      <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input autocomplete="off" type="text" id="cardNumber" maxlength="19"
+          placeholder="1234 5678 9012 3456" required />
+      </div>
+
+      <div class="form-group">
+        <label for="cardName">Card Holder Name</label>
+        <input autocomplete="off" type="text" id="cardName" placeholder="John Doe" required />
+      </div>
+
+      <div class="form-group" style="display:flex; gap:10px;">
+        <div style="flex:1;">
+          <label for="expiry">Expiry (MM/YY)</label>
+          <input autocomplete="off" type="text" id="expiry" maxlength="5"
+            placeholder="MM/YY" required />
+        </div>
+        <div style="flex:1;">
+          <label for="cvv">CVV</label>
+          <input autocomplete="off" type="password" id="cvv" maxlength="3"
+            placeholder="123" required />
+        </div>
+      </div>
+
+      <button class="btn-pay" type="submit">Pay Now</button>
+    </form>
+
+
+    
+  </div>
+  <p class="copy-rights"> <i class="bi bi-c-circle"></i> AB's Fashion.com 2025. All rights reserved.</p>
+
+
+  
+  <script>
+    // Helpers to format inputs
+    function formatNumber(value) {
+      return value.replace(/\D/g, '').substring(0,16)
+                  .replace(/(.{4})/g, '$1 ')
+                  .trim();
+    }
+    function formatExpiry(value) {
+      return value.replace(/\D/g, '').substring(0,4)
+                  .replace(/(.{2})/, '$1/')
+                  .trim();
+    }
+
+    // Elements
+    const cardEl   = document.getElementById('card');
+    const numIn    = document.getElementById('cardNumber');
+    const nameIn   = document.getElementById('cardName');
+    const expIn    = document.getElementById('expiry');
+    const cvvIn    = document.getElementById('cvv');
+
+    const dispNum  = document.getElementById('display-number');
+    const dispName = document.getElementById('display-name');
+    const dispExp  = document.getElementById('display-expiry');
+    const dispCvv  = document.getElementById('display-cvv');
+
+    // Sync inputs → preview
+    numIn.addEventListener('input', e => {
+      e.target.value = formatNumber(e.target.value);
+      dispNum.textContent = e.target.value || '#### #### #### ####';
+    });
+    nameIn.addEventListener('input', e => {
+      dispName.textContent = e.target.value.toUpperCase() || 'FULL NAME';
+    });
+    expIn.addEventListener('input', e => {
+      e.target.value = formatExpiry(e.target.value);
+      dispExp.textContent = e.target.value || 'MM/YY';
+    });
+
+    // Flip card on CVV focus
+    cvvIn.addEventListener('focus', () => cardEl.classList.add('flipped'));
+    cvvIn.addEventListener('blur', () => cardEl.classList.remove('flipped'));
+    cvvIn.addEventListener('input', e => {
+      dispCvv.textContent = e.target.value || '###';
+    });
+
+   function processPayment() {
+  const cardNumber = document.getElementById('cardNumber').value.trim();
+  const cardName = document.getElementById('cardName').value.trim();
+  const expiry = document.getElementById('expiry').value.trim();
+  const cvv = document.getElementById('cvv').value.trim();
+
+  if (!cardNumber || !cardName || !expiry || !cvv) {
+    alert("Please fill out all payment details.");
+    return false;
+  }
+
+  // Step 1: Get checkout total
+  const checkoutTotal = parseFloat(localStorage.getItem("checkoutTotalAmount")) || 0;
+
+  // Step 2: Get current balance
+  let currentBalance = parseFloat(localStorage.getItem("balance")) || 0;
+
+  // Step 3: Check and deduct
+  if (checkoutTotal > currentBalance) {
+    alert("Insufficient balance. Please add funds.");
+    return false;
+  }
+
+  currentBalance -= checkoutTotal;
+  localStorage.setItem("balance", currentBalance.toFixed(2));
+
+  // Step 4: Add transaction
+  let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+  const timestamp = new Date().toLocaleString();
+  transactions.unshift(`Paid ₹${checkoutTotal.toFixed(2)} on ${timestamp}`);
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+
+  // Step 5: Clear cart
+  localStorage.removeItem("cart");
+
+  // Optional: Clear checkout total
+  localStorage.removeItem("checkoutTotalAmount");
+
+  // Step 6: Redirect
+  alert("Payment successful!");
+  window.location.href = "thankyou.html";
+  return false; // Prevent form submission
+}
+  </script>
+
+<script>
+    var loader = document.getElementById('preloader');
+    var loader_text = document.getElementById('loader-text1')
+
+    window.addEventListener('load',function(){
+        loader_text.innerHTML='please wait a moment...'
+        
+        setTimeout(function (){
+            loader.style.display = "none";
+            
+
+        },500);
+    }
+)
+</script>
+
+</body>
+</html>

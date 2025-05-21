@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" id="body">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <link rel="icon" href="./fashion_logo1.png" type="">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+</head>
+
+
+
+
+
+<body>
+
+<!----------------------------------------Preloader section here------------------------------------------------>
+
+    <div id="preloader">
+        <p id="loader-text"></p>
+        <img src="./preloader.gif" alt="">
+    </div>
+
+
+<!-------------------------------- Cart & Wishlist Toast Message Here------------------------------------------->
+
+
+    <div id="toast" class="toast"><i class="fa-regular fa-circle-check"></i> Cart updated successfully</div>
+    <div id="toast_wishlist" class="toast-wishlist"> Added to wishlist <i class="fa-regular fa-heart"></i></div>
+    <div id="toast-existProduct" class="toast-existProduct">Product is already added in your cart</div>
+    <div id="size-selection" >Please select a size before adding to a cart</div>
+
+    
+<!-----------------------------------------------------Header Section-------------------------------------------->
+
+     <div class="menu-bar">
+        <a href="main.html" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.png" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
+        
+        <ul>
+            
+        <li><a href="myorders.html">My Orders <i class="fa-solid fa-bag-shopping"></i></a></li>
+        <li><a href="#" class="cart-icon" onclick="toggleCart()">Cart <i class="bi bi-cart-plus"></i><span class="quantity" id="cart-value">0</span></a></li>
+        </li>
+        
+        
+        <div class="profile">
+            <li><a href="#" id="profile"> <i class="bi bi-person"></i> Profile <i class="fas fa-caret-down"></i></a>
+
+
+        
+<!--------------------------------------------------Drop down menu Section Here-------------------------------------->
+        
+        
+        <div class="dropdown-menu">
+        <ul>
+            <li><a href="saved_Addresses.html">Saved Address <i class="bi bi-person-vcard"></i></a></li>  
+            <li><a href="card_details.html">My Card <i class="bi bi-credit-card"></i></a></li>
+            <li><a href="forgot_password.html">Change Password <i class="bi bi-key"></i> </a></li>
+            <li><a href="#contact">About <i class="bi bi-person"></i></a></li>
+            <li><a href="#contact">Contact us <i class="bi bi-telephone"></i></a></li>
+            <li><a href="login.html">LogOut <i class="bi bi-box-arrow-right"></i></a></li>
+        </ul>
+        </div>
+        </div>
+        </li>
+        </ul>
+        </div>
+        
+
+
+<!------------------------------------Sliding Cart Toggle section here-------------------------------------->
+
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h2>Shopping Cart <i class="fa-solid fa-cart-shopping"></i></h2>
+        <button class="close-btn" onclick="toggleCart()">&times;</button>
+    </div>
+    <div class="cart-items" id="cart">
+        <!-- Cart items will be dynamically added here -->
+        <p id="empty-cart-message">Your cart is ready for its next adventure!</p>
+        <h4 id="cartEmpty"></h4>
+         <div id="output">
+
+         </div>
+    </div>
+    <div class="cart-footer">
+        <p id="totalPrice">Total: ₹ 0.00</p>
+        <a href="checkout.html" target="_blank"><button class="checkout-btn">Checkout</button></a>
+    </div>
+</div>
+
+
+
+<!---------------------------------------Sliding Wishlist Toggle section here----------------------------------->
+
+
+   <div class="wishlist-overlay" id="wishlistOverlay" onclick="toggleWishlist()"></div>
+
+    <div class="wishlist-sidebar" id="wishlistSidebar">
+        <div class="wishlist-header">
+            <h2>Favourites <i class="fa-regular fa-heart"></i></h2>
+            <button class="close-btn" onclick="toggleWishlist()">&times;</button>
+        </div>
+        <div class="wishlist-items" id="wishlist">
+            <!-- Cart items will be dynamically added here -->
+             
+             
+        </div>
+        
+    </div>
+
+
+
+        
+        
+<!-----------------------------------------------Product Details Section here-------------------------------------->
+
+
+    <div class="container">
+        <div class="title"><p>PRODUCT DETAILS</p></div>
+        
+        <a href="main.html" id="fade-link" class="arrow"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="detail">
+            
+            
+            <div class="image">
+                <img src="">
+            </div>
+            <div class="content">
+                <h1 class="name"></h1>
+                <div class="price"></div>
+                <h3 style="margin-top: 20px; margin-bottom: 10px; font-size: 16px;" >Product Description</h3>
+                <div class="description"></div>
+                
+                
+                
+                <h3 style="margin-bottom: 10px; font-size: 16px;">Size Chart</h3>
+                <div class="size-chart">
+                
+                    
+                    <h4 style="font-weight: 300;">Shopper love our size recommandations. <br>Try out!
+                        <a href="" onclick="showImage(event)">Find my fit
+                            
+                        </a>
+                        <div id="overlay" onclick="hideImage()" class="size_chart">
+                            <img src="" >
+                            
+                           
+                        </div>
+                        
+                    </h4>
+                </div>
+
+
+
+<!------------------------------------------------Size Fitting Section here-------------------------------------------->
+
+
+
+
+    <div class="size" id="size">
+    <label for="size-select" class="size1">Choose Size:</label>
+    <select id="size-select">
+        <!-- options will be added by JS -->
+    </select>
+    </div>
+
+
+
+<!-------------------------------------------------Buttons Section here------------------------------------------------>
+      
+
+    <div class="buttons">
+        <a href="checkout.html" id="loadData1"><button class="buy-button">Buy Now</button></a>
+
+        <button class="cart-button" id="loadData" onclick="showToast_cart();updateCart(1);">Add to Cart  <i class="bi bi-cart-plus"></i></button>
+    
+    </div>
+                
+
+    <div id="productContainer" class="product-container"></div>
+
+
+<!-------------------------------------------------Delivery Details Section here---------------------------------------->
+
+
+
+                <h3 style="margin-bottom: 10px; font-size: 16px;">Delivery Options</h3>
+                <div class="delivery-options">
+                    <ul>
+                        <li>COD Available</li>
+                        <li>Debit/Credit Cards Accepted</li>
+                        <li>UPI Payments Available</li>
+                    </ul>
+                </div><br>
+
+
+<!---------------------------------------------Product-Declaration Section here-------------------------------------->
+
+                 <h3 style="margin-bottom: 10px; font-size: 16px;">Product Declaration</h3>
+                 <div class="product-declaration">
+                    <ul>
+                        <li class="ptype"></li>
+                        <li>Net Quantity :- 1</li>
+                        <li>Manufacturing Date :-  Dec 2024</li>
+                        <li>Manufactured By :-  Old R.R Peta, 520001, Vijayawada</li>
+                        <li>Customer care Details :-  valluribalaji59@gmail.com  Old R.R Peta, 520001, Vijayawada </li>
+                    </ul>
+                 </div><br>
+
+
+
+<!------------------------------------------Delivery and Return Section here---------------------------------------->
+                 
+                 <h3 style="margin-bottom: 10px; font-size: 16px;">Delivery and Returns</h3>
+
+                 <div class="delivery-return">
+                    <ul>
+                        <li>Delivery</li>
+                        <li>All India free shipping</li>
+                        <li>Returns</li>
+                        <li>15 days returns</li>
+                    </ul>
+                 </div>
+           
+            </div>
+        </div>
+
+    </div>
+
+    
+
+
+
+    
+    
+<!---------------------------------------------------------Footer Section here---------------------------------------->
+
+
+<footer>
+    <div class="about-products">
+        <p><a href="" class="head" >AB's Fashion.com </a></p><br>
+        <p class="caption">Our stand is every men has maintain <br> unique style with our brand.</p>
+        <header class="heading">
+    
+                <ul class="head1">
+                <p style="font-weight: bold;">Company <br>
+                   <a href="" class="list12"><li>Carrers</li></a><br>
+                   <a href="" class="list12"><li>Blog</li></a>
+                   </p>
+                </ul>
+            <ul class="head1" >
+                <p style="font-weight: bold;">Resources <br>
+                <a href=""class="list12"><li>Refund Policy</li></a><br>
+                <a href=""class="list12"><li>Privacy</li></a>
+                <a href=""class="list12"><li>Terms</li></a>
+            </p>
+            </ul>
+            <ul class="head1">
+                <p style="font-weight: bold;">Social Connect <br>
+                <a href="" class="list12"><li><i class="fa-brands fa-youtube"></i> Youtube</li></a><br>
+                <a href="" class="list12"><li><i class="fa-brands fa-linkedin"></i> Linkedin</li></a>
+                <a href="" class="list12"><li><i class="fa-brands fa-instagram"></i> Instagram</li></a>
+                <a href="" class="list12"><li><i class="fa-brands fa-facebook"></i> Facebook</li></a>
+            </p>
+            </ul>
+            <ul class="head1">
+                <p style="font-weight: bold;">Contact <br><br>
+                <p style="color: rgb(192, 189, 189);"><i class="fa-solid fa-location-dot"></i> Old Raja Rajeswari peta,<br>Vijayawada,Andhra Pradesh</p><br>
+                <a href="" id="contact" class="list12"><li><i class="fa-solid fa-envelope"></i> valluribalaji59@gmail.com</li></a>
+                <a href="" class="list12"><li><i class="fa-solid fa-phone"></i> +91 9494585938</li></a>
+                <a href="" class="list12"><li><i class="fa-brands fa-whatsapp"></i> WhatsApp us </li></a>
+            </p>
+            </ul>
+        </header>
+    
+        <div class="copy-rights12">
+            <p><i class="fa-regular fa-copyright"></i> AB's Fashion.com 2025. All rights reserved.</p>
+            <p>When you visit or interact with our sites, services or tools, we or our authorised service providers may use cookies for storing information to <br>help provide you with a better, faster and safer experience and for marketing purposes.</p>
+        </div>
+        </div>
+</footer>
+
+
+
+
+
+
+
+<!------------------------------------------------Scripting's section here------------------------------------------>
+    
+
+<script>
+
+        let products = null;
+        
+        // Fetch data from products.json
+        fetch("products.json")
+          .then((response) => response.json())
+          .then((data) => {
+            products = data;
+            showDetail();
+          });
+        
+        function showDetail() {
+          const detail = document.querySelector(".detail");
+          const productId = new URLSearchParams(window.location.search).get("id");
+          const thisProduct = products.find((p) => p.id == productId);
+        
+          if (!thisProduct) {
+            window.location.href = "/";
+            return;
+          }
+        
+          // Populate product details
+          detail.querySelector(".image img").src = thisProduct.image;
+          detail.querySelector(".name").innerText = thisProduct.name;
+          detail.querySelector(".price").innerText = "Rs." + thisProduct.price;
+          detail.querySelector(".description").innerText = thisProduct.description;
+          detail.querySelector(".ptype").innerText = thisProduct.ptype;
+          detail.querySelector(".size_chart img").src = thisProduct.size_chart;
+        
+          // Populate size dropdown from JSON
+          const sizeSelect = document.getElementById("size-select");
+          sizeSelect.innerHTML = "";
+        
+          const sizesFromJSON = [
+            { text: thisProduct.size2, value: "" },
+            { text: thisProduct.small, value: thisProduct.small },
+            { text: thisProduct.medium, value: thisProduct.medium },
+            { text: thisProduct.large, value: thisProduct.large },
+            { text: thisProduct.xl, value: thisProduct.xl },
+            { text: thisProduct.xxl, value: thisProduct.xxl },
+          ];
+        
+          sizesFromJSON.forEach((size) => {
+            const option = document.createElement("option");
+            option.textContent = size.text;
+            option.value = size.value;
+            if (size.value === "") {
+              option.disabled = true;
+              option.selected = true;
+            }
+            sizeSelect.appendChild(option);
+          });
+        
+          // Suggested products
+          (products.filter((p) => p.id != productId)).forEach((product) => {
+            const newProduct = document.createElement("a");
+            newProduct.href = "products.html?id=" + product.id;
+            newProduct.classList.add("item");
+            newProduct.innerHTML = `
+                <img src="${product.image}" alt="">
+                <h2>${product.name}</h2>
+                <div class="price">Rs.${product.price}</div>
+            `;
+            document.getElementById("listProduct").appendChild(newProduct);
+          });
+        }
+        
+// -------------------------------------------------- Cart Handling -----------------------------------------------
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+          const cartItems = document.querySelector(".cart-items");
+          const totalPriceElement = document.getElementById("totalPrice");
+        
+          loadCartFromLocalStorage();
+        
+          document.getElementById("loadData").addEventListener("click", function () {
+            const productId = new URLSearchParams(window.location.search).get("id");
+            const selectedSize = document.getElementById("size-select").value;
+        
+            if (!selectedSize) {
+              sizeSelection();
+              recalculateCartValue(); // 
+              return;
+            }
+
+            const existingProduct = document.querySelector(`.cart-item[data-id="${productId}"][data-size="${selectedSize}"]`);
+            if (existingProduct) {
+              showToast_exist(); // Show toast message for existing product
+              recalculateCartValue(); // Update cart count
+              return; // Prevent adding the same product again
+            }
+
+
+
+
+            
+            
+          
+//----------------------------------------------------Fetch product data and add to cart----------------------------------
+
+            // Fetch product data from JSON file
+
+            fetch("products.json")
+              .then((response) => response.json())
+              .then((data) => {
+                const product = data.find((p) => p.id == productId);
+                if (product) {
+                  product.size = selectedSize; // Add selected size to product object
+                  addProductToCart(product);
+                  // Convert to string to match localStorage values
+                    removeFromWishlist(String(product.id), String(product.size));
+
+                  saveCartToLocalStorage();
+                  
+
+                } else {
+                  alert("Product not found.");
+                }
+              });
+          });
+
+
+//-------------------------------------------Toggle empty cart message--------------------------------------
+
+
+
+
+function toggleEmptyCartMessage() {
+    let cartItems = document.querySelectorAll(".cart-item");
+    let message = document.getElementById("empty-cart-message");
+
+    if (cartItems.length === 0) {
+        message.style.display = "block";
+    } else {
+        message.style.display = "none";
+    }
+}
+
+
+
+        
+//--------------------------------------------Add product to cart function-------------------------------------
+
+
+function addProductToCart(product, fromStorage = false) {
+    let existingProduct = document.querySelector(`.cart-item[data-id="${product.id}"][data-size="${product.size}"]`);
+
+    const quantityToAdd = product.quantity || 1;
+
+    if (existingProduct) {
+        if (fromStorage) return; // Don't increase if loading from storage
+
+        const quantityElement = existingProduct.querySelector(".cart-quantity");
+        const quantityDisplay = existingProduct.querySelector(".quantity-display");
+        const priceElement = existingProduct.querySelector(".cart-price");
+        const unitPrice = parseFloat(existingProduct.getAttribute("data-price"));
+
+        let quantity = parseInt(quantityElement.textContent) + quantityToAdd;
+
+        quantityElement.textContent = quantity;
+        quantityDisplay.textContent = quantity;
+        priceElement.textContent = (unitPrice * quantity).toFixed(2);
+
+        saveCartToLocalStorage();
+        updateTotalPrice();
+        toggleEmptyCartMessage();
+        
+        return;
+    }
+
+    // If not existing, create a new cart item
+    let productDiv = document.createElement("div");
+    productDiv.classList.add("cart-item");
+    productDiv.setAttribute("data-id", product.id);
+    productDiv.setAttribute("data-size", product.size);
+    productDiv.setAttribute("data-price", parseFloat(product.price).toFixed(2));
+
+    productDiv.innerHTML = `
+        <img src="${product.image}" class="cart-image" alt="${product.name}" />
+        <p class="cart-name">${product.name}</p>
+        <p class="cart-size">Size : <span>${product.size}</span></p>
+        <p class="quantity-number">Qty : <span class="quantity-display">${quantityToAdd}</span></p>
+
+        <div class="cart-quantity-controls">
+            <button class="decrement"><i class="fa-solid fa-arrow-down"></i></button>
+            <span class="cart-quantity">${quantityToAdd}</span>
+            <button class="increment"><i class="fa-solid fa-arrow-up"></i></button>
+        </div>
+
+        <p class="cart-price">${(parseFloat(product.price) * quantityToAdd).toFixed(2)}</p>
+        <i class="bi bi-trash"></i><hr>
+    `;
+
+    cartItems.appendChild(productDiv);
+    saveCartToLocalStorage();
+    updateTotalPrice();
+    recalculateCartValue(); // Update cart count
+
+    // Attach event listeners
+    productDiv.querySelector(".increment").addEventListener("click", function () {
+        updateQuantity(product.id, product.size, 1);
+    });
+
+    productDiv.querySelector(".decrement").addEventListener("click", function () {
+        updateQuantity(product.id, product.size, -1);
+    });
+
+    productDiv.querySelector(".bi-trash").addEventListener("click", function () {
+        removeProductFromCart(product.id, product.size);
+    });
+
+    saveCartToLocalStorage();
+    updateTotalPrice();
+    toggleEmptyCartMessage();
+
+}
+
+
+
+
+
+//---------------------------------------Update quantity function section here----------------------------------
+
+
+function updateQuantity(productId, size, change) {
+    let productElement = document.querySelector(`.cart-item[data-id="${productId}"][data-size="${size}"]`);
+    if (!productElement) return;
+
+    const quantityElement = productElement.querySelector(".cart-quantity");
+    const quantityDisplay = productElement.querySelector(".quantity-display");
+    const priceElement = productElement.querySelector(".cart-price");
+    const unitPrice = parseFloat(productElement.getAttribute("data-price"));
+
+    let quantity = parseInt(quantityElement.textContent) + change;
+
+    if (quantity < 1) {
+        removeProductFromCart(productId, size);
+        return;
+    }
+
+    quantityElement.textContent = quantity;
+    quantityDisplay.textContent = quantity;
+    priceElement.textContent = (unitPrice * quantity).toFixed(2);
+
+    saveCartToLocalStorage();
+    recalculateCartValue();
+    updateTotalPrice();
+}
+
+
+
+
+//---------------------------------------------Save cart to local storage function section here----------------------------------
+
+
+function saveCartToLocalStorage() {
+    const cartItemsElements = document.querySelectorAll(".cart-item");
+    const cartData = [];
+
+    cartItemsElements.forEach(item => {
+        cartData.push({
+            id: item.getAttribute("data-id"),
+            size: item.getAttribute("data-size"),
+            price: item.getAttribute("data-price"),
+            quantity: parseInt(item.querySelector(".cart-quantity").textContent),
+            name: item.querySelector(".cart-name").textContent,
+            image: item.querySelector(".cart-image").getAttribute("src")
+        });
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cartData));
+}
+toggleEmptyCartMessage();
+
+
+
+//-------------------------------------------Load cart from local storage function section here----------------------------------
+
+
+function loadCartFromLocalStorage() {
+    const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cartData.forEach(product => {
+        addProductToCart(product, true); // prevent duplicate quantity/price
+    });
+
+
+    
+    updateTotalPrice();
+    toggleEmptyCartMessage();
+}
+document.addEventListener("DOMContentLoaded", loadCartFromLocalStorage);
+
+
+
+// -----------------------------------------Function to recalculate total cart count------------------------------------
+
+
+function recalculateCartValue() {
+    let totalItems = 0;
+
+    document.querySelectorAll(".cart-quantity").forEach(item => {
+        totalItems += parseInt(item.textContent);
+    });
+
+    // Update both localStorage and UI
+    localStorage.setItem("cartValue", totalItems);
+    document.getElementById("cart-value").textContent = totalItems || 0; // Set to 0 if empty
+}
+// Recalculate cart value on page load
+document.addEventListener("DOMContentLoaded", function () {
+    recalculateCartValue();
+});
+
+
+
+
+function recalculateWishlistValue() {
+  
+
+    // Update both localStorage and UI
+    localStorage.setItem("wishlistValue", totalItems);
+    document.getElementById("wishlist-value").textContent = totalItems || 0; // Set to 0 if empty
+}
+// Recalculate cart value on page load
+document.addEventListener("DOMContentLoaded", function () {
+    recalculateWishlistValue();
+});
+
+
+
+//----------------------------- ------------------Remove product from cart function section here----------------------------------
+
+
+function removeProductFromCart(productId, size) {
+    document.querySelector(`.cart-item[data-id='${productId}'][data-size="${size}"]`).remove();
+    saveCartToLocalStorage();
+    updateTotalPrice();
+    recalculateCartValue();
+    toggleEmptyCartMessage();
+}
+
+
+//------------------------------------Update total price function section here----------------------------------
+
+
+function updateTotalPrice() {
+    let total = 0;
+    document.querySelectorAll(".cart-item").forEach(item => {
+        let price = parseFloat(item.querySelector(".cart-price").textContent.replace("$", ""));
+        total += price;
+    });
+    totalPriceElement.textContent = `Total: ₹${total.toFixed(2)}`;
+}
+});
+
+
+</script>
+  
+
+
+<!------------------------------------Updating Cart value scripting section here-------------------------------->
+   
+<script>
+
+// Function to update cart value
+// Function to update cart value dynamically
+function updateCart(value) {
+    const cartValue = document.getElementById("cart-value");
+    let currentValue = parseInt(localStorage.getItem("cartValue")) || 0;
+
+    // Update value
+    currentValue += value;
+    currentValue = Math.max(0, currentValue); // Ensure value is not negative
+
+    // Update localStorage and UI
+
+    localStorage.setItem("cartValue", currentValue);
+    cartValue.textContent = currentValue; 
+}
+
+
+</script>
+
+
+<!--------------------------------------Sliding Cart Toggle section here--------------------------------->
+
+
+<script>
+
+    let cartOpen = false;
+    let cartCount = 0;
+    let cartTotal = 0;
+
+function toggleCart() {
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartOverlay = document.getElementById('cartOverlay');
+
+    cartOpen = !cartOpen;
+
+    if (cartOpen) {
+        cartSidebar.classList.add('open');
+        cartOverlay.style.display = 'block';
+    } else {
+        cartSidebar.classList.remove('open');
+        cartOverlay.style.display = 'none';
+    }
+}
+
+</script>
+
+
+
+
+<!--------------------------------------Sliding Wishlist Cart Toggle section here--------------------------------->
+
+
+<script>
+
+    let wishlistOpen = false;
+    let wishlistCount = 0;
+    let WishlistTotal = 0;
+
+function toggleWishlist() {
+    const wishlistSidebar = document.getElementById('wishlistSidebar');
+    const wishlistOverlay = document.getElementById('wishlistOverlay');
+
+    wishlistOpen = !wishlistOpen;
+
+    if (wishlistOpen) {
+        wishlistSidebar.classList.add('open');
+        wishlistOverlay.style.display = 'block';
+    } else {
+        wishlistSidebar.classList.remove('open');
+        wishlistOverlay.style.display = 'none';
+    }
+}
+
+
+</script>
+
+
+
+<!----------------------------------Show Toast Cart message section here--------------------->
+
+<script>
+    function showToast_cart() {
+        var toast = document.getElementById("toast");
+        toast.classList.add("show");
+        setTimeout(function() {
+            toast.classList.remove("show");
+        }, 2000); // Hide toast after 3 seconds
+    }
+</script>
+
+
+<!----------------------------------Show Toast Wishlist message section here--------------------->
+
+
+<script>
+    function showToast_wishlist() {
+        var toast = document.getElementById("toast_wishlist");
+        toast.classList.add("show");
+        setTimeout(function() {
+            toast.classList.remove("show");
+        }, 2000); // Hide toast after 3 seconds
+    }
+</script>
+
+<!----------------------------------Show Toast existing product message section here--------------------->
+
+
+<script>
+    function showToast_exist() {
+        var toast = document.getElementById("toast-existProduct");
+        toast.classList.add("show");
+        setTimeout(function() {
+            toast.classList.remove("show");
+        }, 2000); // Hide toast after 3 seconds
+    }
+</script>
+
+<!-----------------------------------Show toast size selection section here------------------------------->
+
+
+<script>
+  function sizeSelection() {
+      var toast = document.getElementById("size-selection");
+      toast.classList.add("show");
+      setTimeout(function() {
+          toast.classList.remove("show");
+      }, 2000); // Hide toast after 3 seconds
+  }
+</script>
+
+
+<!---------------------------------preloader section here------------------------------------------------->
+
+
+<script>
+    var loader = document.getElementById('preloader');
+    var loader_text = document.getElementById('loader-text')
+
+    window.addEventListener('load',function(){
+        loader_text.innerHTML='Style that speaks louder than words...'
+        
+        setTimeout(function (){
+            loader.style.display = "none";
+            
+
+        },500);
+    }
+)
+</script>
+<!---------------------------Overflow hidden section here--------------------------------------->
+
+<script>
+    const cart1 = document.getElementById('cart');
+  
+    cart1.addEventListener('mouseenter', () => {
+      cart1.style.overflowY = 'auto'; // Enable scroll on hover
+    });
+  
+    cart1.addEventListener('mouseleave', () => {
+      cart1.style.overflowY = 'hidden'; // Disable scroll when mouse leaves
+    });
+  </script>
+
+<script>
+    const body = document.getElementById('body');
+  
+    body.addEventListener('mouseenter', () => {
+      body.style.overflowY = 'auto'; // Enable scroll on hover
+    });
+  
+    body.addEventListener('mouseleave', () => {
+      body.style.overflowY = 'hidden'; // Disable scroll when mouse leaves
+    });
+  </script>
+
+
+<script>
+    const link = document.getElementById('fade-link');
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.body.style.transition = 'opacity 0.5s ease';
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location = link.href;
+      }, 500);
+    });
+  </script>
+
+
+
+
+
+
+    
+            <script src="index.js"></script>
+            <script src="products.js"></script>
+
+
+
+
+
+
+            
+            
+            
+            
+
+</body>
+</html>
