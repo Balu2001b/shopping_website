@@ -200,10 +200,52 @@
     text-align: center;
 }
 
-
-
      
-    }
+}
 
+/* ----------------------------------------- Footer styling section here------------------------------------*/
 
+/* Responsive for Mobile */
+@media only screen and (max-width: 600px) {
+  .about {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .head1 {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+  }
+
+  .head1 li {
+    margin: 8px 0;
+    font-size: 0.95rem;
+  }
+
+  .caption {
+    font-size: 1rem;
+    margin: 10px 0 20px 0;
+  }
+
+  .list12 {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .copy-rights12 {
+    font-size: 0.85rem;
+    margin-top: 20px;
+    padding: 10px;
+    line-height: 1.4;
+    text-align: center;
+  }
+}
 
