@@ -1,6 +1,12 @@
 @media only screen and (max-width: 600px){
+    
+      #loader-text1{
 
-   
+        position: absolute;
+         top: 500px;
+        left: 100px;
+        font-weight: bold;
+      }
       .ab_icon{
 
         display: block;
@@ -351,3 +357,12 @@
     width: 100%;
   }
 }
+
+/* Hide mobile nav by default on desktop */
+@media screen and (min-width: 768px) {
+  .hamburger-toggle,
+  .mobile-nav-overlay {
+    display: none !important;
+  }
+}
+
