@@ -6,8 +6,9 @@
     <title>Product Details</title>
     <link rel="stylesheet" href="style.css">
 
+    <link rel="stylesheet" href="products_responsive_screen.css">
 
-    <link rel="icon" href="./fashion_logo1.png" type="">
+    <link rel="icon" href="./fashion_logo1.JPG" type="">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
@@ -44,11 +45,11 @@
 <!-----------------------------------------------------Header Section-------------------------------------------->
 
      <div class="menu-bar">
-        <a href="main.html" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.png" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
+        <a href="main.html" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.JPG" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
         
         <ul>
             
-        <li><a href="myorders.html">My Orders <i class="fa-solid fa-bag-shopping"></i></a></li>
+        <li><a href="myorders.html" class="myorders">My Orders <i class="fa-solid fa-bag-shopping"></i></a></li>
         <li><a href="#" class="cart-icon" onclick="toggleCart()">Cart <i class="bi bi-cart-plus"></i><span class="quantity" id="cart-value">0</span></a></li>
         </li>
         
@@ -103,24 +104,6 @@
 </div>
 
 
-
-<!---------------------------------------Sliding Wishlist Toggle section here----------------------------------->
-
-
-   <div class="wishlist-overlay" id="wishlistOverlay" onclick="toggleWishlist()"></div>
-
-    <div class="wishlist-sidebar" id="wishlistSidebar">
-        <div class="wishlist-header">
-            <h2>Favourites <i class="fa-regular fa-heart"></i></h2>
-            <button class="close-btn" onclick="toggleWishlist()">&times;</button>
-        </div>
-        <div class="wishlist-items" id="wishlist">
-            <!-- Cart items will be dynamically added here -->
-             
-             
-        </div>
-        
-    </div>
 
 
 
@@ -184,7 +167,7 @@
       
 
     <div class="buttons">
-        <a href="checkout.html" id="loadData1"><button class="buy-button">Buy Now</button></a>
+        <a href="checkout.html" id="loadData1" ><button class="buy-button">Buy Now</button></a>
 
         <button class="cart-button" id="loadData" onclick="showToast_cart();updateCart(1);">Add to Cart  <i class="bi bi-cart-plus"></i></button>
     
@@ -249,52 +232,54 @@
     
 <!---------------------------------------------------------Footer Section here---------------------------------------->
 
-
 <footer>
-    <div class="about-products">
-        <p><a href="" class="head" >AB's Fashion.com </a></p><br>
-        <p class="caption">Our stand is every men has maintain <br> unique style with our brand.</p>
-        <header class="heading">
-    
-                <ul class="head1">
-                <p style="font-weight: bold;">Company <br>
-                   <a href="" class="list12"><li>Carrers</li></a><br>
-                   <a href="" class="list12"><li>Blog</li></a>
-                   </p>
-                </ul>
-            <ul class="head1" >
-                <p style="font-weight: bold;">Resources <br>
-                <a href=""class="list12"><li>Refund Policy</li></a><br>
-                <a href=""class="list12"><li>Privacy</li></a>
-                <a href=""class="list12"><li>Terms</li></a>
-            </p>
-            </ul>
-            <ul class="head1">
-                <p style="font-weight: bold;">Social Connect <br>
-                <a href="" class="list12"><li><i class="fa-brands fa-youtube"></i> Youtube</li></a><br>
-                <a href="" class="list12"><li><i class="fa-brands fa-linkedin"></i> Linkedin</li></a>
-                <a href="" class="list12"><li><i class="fa-brands fa-instagram"></i> Instagram</li></a>
-                <a href="" class="list12"><li><i class="fa-brands fa-facebook"></i> Facebook</li></a>
-            </p>
-            </ul>
-            <ul class="head1">
-                <p style="font-weight: bold;">Contact <br><br>
-                <p style="color: rgb(192, 189, 189);"><i class="fa-solid fa-location-dot"></i> Old Raja Rajeswari peta,<br>Vijayawada,Andhra Pradesh</p><br>
-                <a href="" id="contact" class="list12"><li><i class="fa-solid fa-envelope"></i> valluribalaji59@gmail.com</li></a>
-                <a href="" class="list12"><li><i class="fa-solid fa-phone"></i> +91 9494585938</li></a>
-                <a href="" class="list12"><li><i class="fa-brands fa-whatsapp"></i> WhatsApp us </li></a>
-            </p>
-            </ul>
-        </header>
-    
-        <div class="copy-rights12">
-            <p><i class="fa-regular fa-copyright"></i> AB's Fashion.com 2025. All rights reserved.</p>
-            <p>When you visit or interact with our sites, services or tools, we or our authorised service providers may use cookies for storing information to <br>help provide you with a better, faster and safer experience and for marketing purposes.</p>
-        </div>
-        </div>
+  <div class="about">
+    <p><a href="#" class="head">AB's Fashion.com</a></p>
+    <p class="caption">Our stand is every man has to maintain<br> unique style with our brand.</p>
+
+    <div class="heading">
+      <ul class="head1">
+        <li><strong>Company</strong></li>
+        <li><a href="#" class="list12">Careers</a></li>
+        <li><a href="#" class="list12">Blog</a></li>
+      </ul>
+
+      <ul class="head1">
+        <li><strong>Resources</strong></li>
+        <li><a href="#" class="list12">Refund Policy</a></li>
+        <li><a href="#" class="list12">Privacy</a></li>
+        <li><a href="#" class="list12">Terms</a></li>
+      </ul>
+
+      <ul class="head1">
+        <li><strong>Social Connect</strong></li>
+        <li><a href="#" class="list12"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
+        <li><a href="#" class="list12"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="#" class="list12"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+        <li><a href="#" class="list12"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+      </ul>
+
+      <ul class="head1">
+        <li><strong>Contact</strong></li>
+        <li style="color: rgb(192, 189, 189);">
+          <i class="fa-solid fa-location-dot"></i> Old Raja Rajeswari Peta,<br>Vijayawada, Andhra Pradesh
+        </li>
+        <li><a href="#" id="contact" class="list12"><i class="fa-solid fa-envelope"></i> valluribalaji59@gmail.com</a></li>
+        <li><a href="#" class="list12"><i class="fa-solid fa-phone"></i> +91 9494585938</a></li>
+        <li><a href="#" class="list12"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a></li>
+      </ul>
+    </div>
+
+    <div class="copy-rights12">
+      <p><i class="fa-regular fa-copyright"></i> AB's Fashion.com 2025. All rights reserved.</p>
+      <p>
+        When you visit or interact with our sites, services or tools, we or our authorised service providers may use
+        cookies for storing information to help provide you with a better, faster and safer experience and for marketing
+        purposes.
+      </p>
+    </div>
+  </div>
 </footer>
-
-
 
 
 
