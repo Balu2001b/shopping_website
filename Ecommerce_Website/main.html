@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="responsive_screen.css">
 
-    <link rel="icon" href="./fashion_logo1.png" type="">
+    <link rel="icon" href="./fashion_logo1.JPG" type="">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
@@ -37,7 +37,7 @@
     
 
     <div class="menu-bar">
-        <a href="" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.png" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
+        <a href="" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.JPG" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
         
         <ul>
             
@@ -66,6 +66,34 @@
         </ul>
         </div>
 
+
+          <div class="mobile-nav-wrapper">
+  <!-- Hamburger Icon -->
+  <button class="hamburger-toggle" onclick="toggleMobileNav()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Overlay Menu -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="mobile-nav-content">
+      <button class="close-mobile-nav" onclick="toggleMobileNav()">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul class="mobile-nav-links">
+        <li><a href="myorders.html" class="myorders">My Orders <i class="fa-solid fa-bag-shopping"></i></a></li>
+        <li><a href="saved_Addresses.html"> Saved Address <i class="bi bi-person-vcard"></i></a></li>
+        <li><a href="card_details.html"> My Card <i class="bi bi-credit-card"></i></a></li>
+        <li><a href="forgot_password.html"> Change Password <i class="bi bi-key"></i></a></li>
+        <li><a href="#about-section"> About <i class="bi bi-person"></i></a></li>
+        <li><a href="#contact-section"> Contact Us <i class="bi bi-telephone"></i></a></li>
+        <li><a href="login.html"> Log Out <i class="bi bi-box-arrow-right"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+        
 
 
        <!------------------------------------Sliding Shopping Cart Toggle section here------------------------------->
@@ -134,11 +162,10 @@
           
         </div>
     
-        
+  
 
 
         <!-------------------------------------Footer Section--------------------------------->
-
 
 <footer>
   <div class="about">
@@ -193,10 +220,27 @@
 
 
 
-<!--------------------------------------------Scripting Section Here------------------------------------------>
-        
 
-        
+
+<!--------------------------------------------Scripting Section Here------------------------------------------>
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById("mobileNavOverlay");
+    overlay.classList.toggle("show");
+  }
+
+  // Optional: click outside to close
+  window.addEventListener('click', function (e) {
+    const overlay = document.getElementById("mobileNavOverlay");
+    const content = overlay.querySelector(".mobile-nav-content");
+    const button = document.querySelector(".hamburger-toggle");
+
+    if (overlay.classList.contains("show") && !content.contains(e.target) && !button.contains(e.target)) {
+      overlay.classList.remove("show");
+    }
+  });
+</script>
+       
 
     <script src="index.js"></script>
     <script src="products.js"></script>
