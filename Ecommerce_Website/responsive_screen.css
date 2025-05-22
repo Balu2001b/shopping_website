@@ -3,20 +3,22 @@
    
       .ab_icon{
 
-        display: none;
+        display: block;
+        height: 30px;
+        width: 30px;
+        margin-top: 5px;
       }
       .logo{
 
         font-size: 0.8rem;
-        margin-left: -10px;
-        margin-top: -25px;
+        margin-left: 20px;
+        margin-top: -5px;
         
       }
 
 
       .menu-bar .myorders,
-      .menu-bar .cart-icon,
-      .menu-bar .profile{
+      .menu-bar .cart-icon{
 
         font-size: 10px;
         
@@ -27,16 +29,17 @@
 
 
         position: absolute;
-        top: 40px;
-        left: -330px;
+        top: 20px;
+        left: -170px;
+        display: none;
        
       }
 
       .menu-bar .cart-icon{
 
          position: absolute;
-        top: 40px;
-        left: -250px;
+        top: 20px;
+        left: -80px;
 
       }
       .menu-bar .quantity{
@@ -46,8 +49,7 @@
       .menu-bar .profile{
   
         
-        margin-left: -90px;
-        margin-top: 30px;
+       display: none;
        
       }
       
@@ -249,3 +251,103 @@
   }
 }
 
+
+
+
+/* Base Reset */
+.mobile-nav-wrapper {
+  position: relative;
+}
+
+/* Hamburger Button */
+.hamburger-toggle {
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 9999;
+  position: fixed;
+  top: 40px;
+  right: 20px;
+}
+
+/* Overlay Styling */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: none;
+  z-index: 9998;
+}
+
+/* Slide-in Nav Content */
+.mobile-nav-content {
+  background: #fff;
+  color: black;
+  width: 60%;
+  max-width: 230px;
+  height: 330px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 10px;
+  position: fixed;
+  top: 80px;
+  right: -100%;
+  transition:  0.3s ease-in-out;
+}
+
+/* When Active */
+.mobile-nav-overlay.show {
+  display: block;
+}
+.mobile-nav-overlay.show .mobile-nav-content {
+  right: 0;
+}
+
+/* Close Button */
+.close-mobile-nav {
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: black;
+  margin-bottom: 20px;
+  float: right;
+}
+
+/* Nav Links */
+.mobile-nav-links {
+  list-style: none;
+  padding: 0;
+ 
+  margin-top: 60px;
+  margin-left: 40px;
+}
+
+.mobile-nav-links li {
+  margin: 18px 0;
+}
+
+.mobile-nav-links a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #111;
+  display: flex;
+
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-nav-links a:hover {
+  color: #007bff;
+}
+
+/* iPhone 13 optimization */
+@media screen and (max-width: 600px) {
+  .mobile-nav-content {
+    width: 100%;
+  }
+}
