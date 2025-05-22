@@ -4,30 +4,7 @@
     --color-black: #141d28;
     --color-black-1: #212b38;
     }
-    #order-scroll {
-        padding: 20px;
-        height: 460px;
-        margin: 0;
-        padding: 0;
-        overflow-y: auto;
-        position: relative;
-        scrollbar-width: thin;
-        scrollbar-color: rgb(218, 211, 211);
-    }
-    /* Chrome, Edge, Safari */
-    #order-scroll ::-webkit-scrollbar {
-        width: 6px;
-    }
-    
-    #order-scroll ::-webkit-scrollbar-thumb {
-        background-color: rgb(219, 219, 219); /* Scrollbar color while scrolling */
-        border-radius: 3px;
-        
-    }
-    
-    #order-scroll ::-webkit-scrollbar-track {
-        background: transparent;
-    }
+   
 
 * {
     margin: 0;
@@ -409,4 +386,238 @@ body{
     color: #333;
     font-size: 14px;
     font-weight: 500;
+}
+
+
+ #order-scroll {
+        padding: 20px;
+        height: 460px;
+        margin: 0;
+        padding: 0;
+        overflow-y: auto;
+        position: relative;
+        scrollbar-width: thin;
+        scrollbar-color: rgb(218, 211, 211);
+    }
+    /* Chrome, Edge, Safari */
+    #order-scroll ::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    #order-scroll ::-webkit-scrollbar-thumb {
+        background-color: rgb(219, 219, 219); /* Scrollbar color while scrolling */
+        border-radius: 3px;
+        
+    }
+    
+    #order-scroll ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+
+
+    
+/* Base Reset */
+.mobile-nav-wrapper {
+  position: relative;
+}
+
+/* Hamburger Button */
+.hamburger-toggle {
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 9999;
+  position: fixed;
+  top: 40px;
+  right: 20px;
+}
+
+/* Overlay Styling */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: none;
+  z-index: 9998;
+}
+
+/* Slide-in Nav Content */
+.mobile-nav-content {
+  background: #fff;
+  color: black;
+  width: 60%;
+  max-width: 230px;
+  height: 330px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 10px;
+  position: fixed;
+  top: 80px;
+  right: -100%;
+  transition:  0.3s ease-in-out;
+}
+
+/* When Active */
+.mobile-nav-overlay.show {
+  display: block;
+}
+.mobile-nav-overlay.show .mobile-nav-content {
+  right: 0;
+}
+
+/* Close Button */
+.close-mobile-nav {
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: black;
+  margin-bottom: 20px;
+  float: right;
+}
+
+/* Nav Links */
+.mobile-nav-links {
+  list-style: none;
+  padding: 0;
+ 
+  margin-top: 60px;
+  margin-left: 40px;
+}
+
+.mobile-nav-links li {
+  margin: 18px 0;
+}
+
+.mobile-nav-links a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #111;
+  display: flex;
+
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-nav-links a:hover {
+  color: #007bff;
+}
+
+/* iPhone 13 optimization */
+@media screen and (max-width: 600px) {
+  .mobile-nav-content {
+    width: 100%;
+  }
+}
+
+/* Hide mobile nav by default on desktop */
+@media screen and (min-width: 768px) {
+  .hamburger-toggle,
+  .mobile-nav-overlay {
+    display: none !important;
+  }
+}
+
+
+
+
+
+
+@media only screen and (max-width: 600px){
+
+    #loader-text1{
+
+        position: absolute;
+         top: 500px;
+        left: 100px;
+        font-weight: bold;
+      }
+      .ab_icon{
+
+        display: block;
+        height: 30px;
+        width: 30px;
+        margin-top: 5px;
+        display: flex;
+      }
+      .logo{
+
+        font-size: 0.8rem;
+        margin-left: 20px;
+        margin-top: 5px;
+        
+      }
+      .menu-bar .myorders,
+      .menu-bar .profile{
+
+        display: none;
+       
+      }
+      .head{
+
+        text-align: center;
+        font-size: 20px;
+      }
+      .arrow{
+
+        margin-left: -250px;
+        margin-top: -30px;
+      }
+        .orders{
+
+        height: 400px;
+        width: 370px;
+        border: 1px solid #ccc;
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        outline: none;
+        overflow-y: scroll;
+        background-color: white;
+       
+        
+
+    }
+    .address-details h3{
+
+        font-size: 12px;
+    }
+    .address-details p{
+
+        font-size: 12px;
+    }
+
+    .order-date,
+    .toggle-btn{
+
+        margin-left: 220px;
+    }
+    .toggle-btn{
+
+        font-size: 14px;
+    }
+    .toggle-btn:hover {
+   color: var(--color-black-1);
+}
+    .item-quantity{
+
+        margin-left: 130px;
+    }
+
+    .item-price{
+
+        margin-left: 200px;
+    }
+    .billing-details{
+
+        margin-left: 150px;
+    }
+
 }
