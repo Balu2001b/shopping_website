@@ -158,7 +158,8 @@
     top: 0;
     background-color: black;
     }
-    
+
+
  /*-----------------------------------Search Box Styling Section Here---------------------------------*/
 
  .logo-searchbar {
@@ -710,28 +711,14 @@ a{
     text-align: left;
 }
 .detail .image img{
-    position: fixed;
+   
     height: 240px;
     width: 180px;
     border-radius: 10px;
-    filter: drop-shadow(0 10px 20px #0009);
-    margin: 20px 0px 0px 50px;
+   
 }
-.detail .image{
-    position: relative;
-}
-.detail .image::before{
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    content: '';
-    filter: drop-shadow(0 50px 20px #0009);
-    z-index: -1;
-    border-radius: 190px 100px 170px 180px;
-    left: calc(50% - 150px);
-    top: 50px;
 
-}
+
 .detail .name{
     font-size: 18px;
     font-weight: 500;
@@ -755,14 +742,12 @@ a{
    border: 1px solid;
     border-radius: 5px;
     padding: 10px 40px 10px 40px;
-    margin: 20px 0px 0px 0px;
+    margin: 20px 110px 0px 0px;
     cursor: pointer;
     background-color: #2196ff;
     color: white;
     outline: none;
-    position: fixed;
-    top: 510px;
-    left: 160px;
+  
     
     
 }
@@ -776,24 +761,7 @@ a{
     background-color: #28282B;
     color: white;
     outline: none;
-    position: fixed;
-    top: 510px;
-    left: 360px;
-}
-
-.wishlist-button{
-
-    border: 1px solid;
-    border-radius: 5px;
-    padding: 10px 30px 10px 30px;
-    margin: 20px 0px 50px 40px;
-    cursor: pointer;
-    background-color: #28282B;
-    color: white;
-    outline: none;
-    position: fixed;
-    top: 550px;
-    left: 320px;
+  
 }
 
 .buy-button:hover,.cart-button:hover,.wishlist-button:hover{
@@ -916,14 +884,11 @@ a{
 .size{
 
     margin-top: 10px;
-    border: 1px solid;
+    margin-bottom: 50px;
     padding: 20px;
     border-radius: 5px;
-    margin-bottom: 50px;
     border: 1px solid #ccc;
-    position: fixed;
-    top: 420px;
-    left: 150px;
+   
     
     
 }
