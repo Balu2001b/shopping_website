@@ -868,9 +868,10 @@ margin-top: 35px;
 
 
   @media only screen and (max-width: 600px) {
-  body {
-    overflow-x: hidden;
-  }
+    body{
+
+        overflow-y: scroll;
+    }
 
   #loader-text1 {
     position: absolute;
@@ -946,21 +947,20 @@ margin-top: 35px;
    top: 690px;
    left: 10px;
    width: 330px;
-  }
-
-  .place-order {
     padding: 10px;
     text-align: center;
   }
+
+
   .add-address p{
 
-    position: fixed;
+    position: absolute;
     left: 10px;
     top: 380px;
   }
 #openModalBtn{
 
-    position: fixed;
+    position: absolute;
     left: 10px;
     top: 400px;
 }
