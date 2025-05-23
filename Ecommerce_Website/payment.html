@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payment Gateway</title>
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="./fashion_logo1.png" type="">
+  <link rel="icon" href="./fashion_logo1.JPG" type="">
+
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
   integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
@@ -263,6 +264,52 @@ color: #333;
 font-size: 14px;
 font-weight: 500;
 }
+
+
+@media only screen and (max-width: 600px){
+
+     #loader-text1{
+
+        position: absolute;
+         top: 500px;
+        left: 100px;
+        font-weight: bold;
+      }
+      .ab_icon{
+
+        display: block;
+        height: 30px;
+        width: 30px;
+        margin-top: 5px;
+      }
+      .logo{
+
+        font-size: 0.8rem;
+        margin-left: 20px;
+        margin-top: -5px;
+        
+      }
+      .payment-form{
+
+        border: 1px solid #ccc;
+        height: 360px;
+        padding: 10px;
+        margin-top: -130px;
+        background-color: white;
+        border-radius: 10px;
+      }
+    .credit-card{
+
+        display: none;
+    }
+    .heading{
+
+        position: absolute;
+        top: 90px;
+        left: 100px;
+        color: red;
+    }
+}
   </style>
 </head>
 <body>
@@ -274,7 +321,7 @@ font-weight: 500;
 
 
   <div class="menu-bar">
-    <a href="" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.png" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
+    <a href="" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.JPG" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
     
     
     </div>
@@ -310,10 +357,10 @@ font-weight: 500;
         </div>
       </div>
     </div>
-
+<h2 class="heading">Secure Checkout </h2>
     <!-- Payment Form -->
     <form class="payment-form" onsubmit="return processPayment();">
-      <h2>Secure Checkout </h2>
+      
 
       <div class="form-group">
         <label for="cardNumber">Card Number</label>
