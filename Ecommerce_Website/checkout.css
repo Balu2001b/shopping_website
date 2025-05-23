@@ -1165,5 +1165,10 @@ margin-top: 35px;
   .close{
     color: red;
   }
+  .address-card span{
+
+    padding: 10px;
+    
+  }
 
 }
