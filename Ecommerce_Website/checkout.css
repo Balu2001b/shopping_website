@@ -957,12 +957,12 @@ margin-top: 35px;
 }
 
   .saved-address {
-    width: 90%;               /* Responsive width */
+    width: 330px;               /* Responsive width */
     height: 120px;            /* Slightly reduced for small screen */
     border-radius: 10px;
     overflow-y: auto;
     position: relative;
-    margin-top: 160px;          /* Center horizontally */
+    margin-top: 140px;          /* Center horizontally */
   }
 
   .saved-address-container {
@@ -981,10 +981,10 @@ margin-top: 35px;
   }
 
   .place-order {
-    width: 90%;                /* Full width on mobile */
-    padding: 12px;
+    width: 100%;                /* Full width on mobile */
+    padding: 10px;
     font-size: 1rem;
-    margin: 20px auto;
+    margin-left: 5px;
     display: block;
     background-color: #0073ff;
     border: none;
@@ -1006,7 +1006,7 @@ margin-top: 35px;
     position: fixed;
     z-index: 1000;
     left: 0;
-    top: 60px;
+    top: 10px;
     width: 100%;
     max-width: 390px;
     height: 100%;
@@ -1098,7 +1098,7 @@ margin-top: 35px;
     padding: 10px;
     border-radius: 10px;
     width: 340px;
-    margin-top: 200px;
+    margin-top: 140px;
     height: fit-content;
     
   }
