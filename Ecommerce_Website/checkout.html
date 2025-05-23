@@ -6,21 +6,18 @@
     <title>Checkout</title>
 
     
-    <link rel="icon" href="./fashion_logo1.png" type="">
+    <link rel="icon" href="./fashion_logo1.JPG" type="">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="checkout_responsive_screen.css">
 
 </head>
 <body>
 
-    <div id="preloader">
-        
-        <img src="./preloader.gif" alt=""><br>
-        <p id="loader-text"></p>
-    </div>
+    
 
     <!--------------------Saved Address Toast Message here-------------------->
     <div id="toast_address" class="toast-address"> Address saved successfully...<i class="fa-solid fa-location-dot"></i></div>
@@ -32,7 +29,7 @@
     
 
    <div class="menu-bar">
-    <a href="" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.png" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
+    <a href="" style="text-decoration: none;"><h1 class="logo"> <img src="./fashion_logo1.JPG" alt="" class="ab_icon"> AB's Fashion.com</h1></a>
     
     <ul>
         
@@ -62,7 +59,7 @@
 
     
 
-    <h3 class="container1" >Items</h3>
+    <h3 class="container1" >Checkout Items</h3>
     
     
 
@@ -115,8 +112,10 @@
         <p class="shipping-head">Shipping Details</p>
 
  <!-- Trigger Button -->
- <p class="shipping-message">If you want add new address, please proceed below button.</p>
+ <div class="add-address">
+  <p class="shipping-message">If you want add new address, please proceed below button.</p>
 <button id="openModalBtn"><i class="fa-solid fa-plus"></i> Add New Address</button>
+ </div>
 
 <!-- Modal Structure -->
 <div id="addressModal" class="modal1">
