@@ -868,10 +868,7 @@ margin-top: 35px;
 
 
   @media only screen and (max-width: 600px) {
-    body{
-
-        overflow-y: scroll;
-    }
+   
 
   #loader-text1 {
     position: absolute;
@@ -942,15 +939,18 @@ margin-top: 35px;
 
   
 
-  .place-order {
-   position: fixed;
-   top: 690px;
-   left: 10px;
-   width: 330px;
-    padding: 10px;
-    text-align: center;
-  }
-
+.saved-address-container p{
+    display: none;
+}
+.place-order {
+  position: absolute;
+  display: none;
+  top: 690px;
+  left: 0;
+  width: 330px;
+  padding: 10px;
+  text-align: center;
+}
 
   .add-address p{
 
@@ -965,22 +965,17 @@ margin-top: 35px;
     top: 400px;
 }
 
-.saved-address-container p{
 
-    position: fixed;
-    top: 450px;
-    left: 10px;
+.saved-address {
+ position: fixed;
+  top: 430px;
+  left: 0;
+  width: 100%;
+  max-width: 370px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f7f7f7;
 }
-  .saved-address {
-    position: fixed;
-    left: 10px;
-    top: 480px;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #f7f7f7;
-    margin-top: 10px;
-    width: 370px;
-  }
 
   /* Modal Styling */
   
