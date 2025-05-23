@@ -295,3 +295,75 @@
     font-size: 14px;
     font-weight: 500;
 }
+
+.return{
+
+    display: none;
+}
+
+
+@media only screen and (max-width:600px){
+
+     #loader-text1{
+
+        position: absolute;
+         top: 500px;
+        left: 100px;
+        font-weight: bold;
+      }
+      .ab_icon{
+
+        display: block;
+        height: 30px;
+        width: 30px;
+        margin-top: 5px;
+      }
+      .logo{
+
+        font-size: 0.8rem;
+        margin-left: 20px;
+        margin-top: -5px;
+        
+      }
+      .container i{
+
+        font-size: 35px;
+      }
+
+      .container h3{
+
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .container p{
+
+        font-size: 11px;
+      }
+
+      .order-items{
+
+        display: none;
+      }
+      .order-header{
+
+        height: 290px;
+        width: 370px;
+        margin-left: 10px;
+      }
+      .return p{
+
+        margin-left: 0px;
+        padding: 10px;
+        font-size: 14px;
+        color: red;
+      }
+      .return button{
+
+        margin-left: 40px;
+        width: 300px;
+        border-radius: 5px;
+        background-color: #2196ff;
+        border: 1px solid #ccc;
+        padding: 5px;
+      }
+    }
